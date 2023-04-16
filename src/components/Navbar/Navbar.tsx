@@ -1,16 +1,13 @@
-import {
-  useUser,
-  SignInButton,
-  SignOutButton,
-  UserProfile,
-} from "@clerk/nextjs";
+import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
 const Navbar = () => {
   const user = useUser();
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn-ghost btn text-xl normal-case">daisyUI</a>
+        <a className="btn-ghost btn font-serif text-xl normal-case">
+          Credacity
+        </a>
       </div>
       <div className="flex-none gap-2">
         <div className="form-control">
