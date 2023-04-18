@@ -1,11 +1,11 @@
-import Header__Issuer from "./Header__Issuer";
-import Header__Type from "./Header__Type";
+import Issuer from "./Issuer";
+import Type from "./Type";
 
 const Header = () => {
   return (
     <div rounded-md shadow-sm role="group">
-      <Header__Type />
-      <Header__Issuer />
+      <Type />
+      <Issuer />
     </div>
   );
 };
