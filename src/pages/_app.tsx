@@ -11,18 +11,13 @@ import { useState } from "react";
 
 import cards__mock from "~/data/cards__mock";
 import { DataContext } from "./DataContext";
+import { CardData } from "~/interface";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
-  const [display, setDisplay] = useState({
-    cards: [...cards__mock],
-    selected: [],
-    results: [...cards__mock],
-    suggested: [],
-  });
-
+  const [display, setDisplay] = useState<CardData[]>([...cards__mock]);
   return (
     <ClerkProvider {...pageProps}>
       <SessionProvider session={session}>

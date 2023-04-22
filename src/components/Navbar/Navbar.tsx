@@ -1,13 +1,26 @@
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
-import { useContext } from "react";
+import { type ChangeEvent, useContext } from "react";
 import profile from "~/assets/images/user.jpeg";
 import { DataContext } from "~/pages/DataContext";
+import cards__mock from "~/data/cards__mock";
+
 const Navbar = () => {
   const user = useUser();
+  const { display, setDisplay } = useContext(DataContext);
 
-  const global = useContext(DataContext);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const cards = [...cards__mock];
+    const { value } = e.target;
 
+    setDisplay(
+      cards.filter(
+        (card) =>
+          card.name.toLowerCase().includes(value.toLowerCase()) ||
+          card.issuer.toLowerCase().includes(value.toLowerCase())
+      )
+    );
+  };
   return (
     <div className="navbar border-b-[1px] border-slate-500 bg-base-100 ">
       <div className="flex-1">
@@ -21,6 +34,9 @@ const Navbar = () => {
             type="text"
             placeholder="Search"
             className="input-bordered input"
+            onChange={(e) => {
+              handleChange(e);
+            }}
           />
         </div>
         {!user.isSignedIn && (
