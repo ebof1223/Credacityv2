@@ -1,5 +1,6 @@
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
+import profile from "~/assets/images/user.jpeg";
 const Navbar = () => {
   const user = useUser();
   return (
@@ -27,12 +28,7 @@ const Navbar = () => {
             <div>
               <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
                 <div className="w-10 rounded-full">
-                  <Image
-                    src="/assets/images/user.jpeg"
-                    alt="user"
-                    width={500}
-                    height={500}
-                  />
+                  <Image src={profile} alt="user" width={500} height={500} />
                 </div>
               </label>
             </div>
