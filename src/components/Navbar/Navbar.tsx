@@ -1,8 +1,13 @@
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
+import { useContext } from "react";
 import profile from "~/assets/images/user.jpeg";
+import { DataContext } from "~/pages/DataContext";
 const Navbar = () => {
   const user = useUser();
+
+  const global = useContext(DataContext);
+
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -32,12 +37,11 @@ const Navbar = () => {
                 </div>
               </label>
             </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
-            >
+            <ul className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow">
               <li>
-                <a className="justify-between">Profile</a>
+                <a className="justify-between" tabIndex={0}>
+                  Profile
+                </a>
               </li>
               <li>
                 <SignOutButton />

@@ -7,14 +7,28 @@ import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 
+import { useState } from "react";
+
+import cards__mock from "~/data/cards__mock";
+import { DataContext } from "./DataContext";
+
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
+  const [display, setDisplay] = useState({
+    cards: [...cards__mock],
+    selected: [],
+    results: [...cards__mock],
+    suggested: [],
+  });
+
   return (
     <ClerkProvider {...pageProps}>
       <SessionProvider session={session}>
-        <Component {...pageProps} />
+        <DataContext.Provider value={{ display, setDisplay }}>
+          <Component {...pageProps} />
+        </DataContext.Provider>
       </SessionProvider>
     </ClerkProvider>
   );

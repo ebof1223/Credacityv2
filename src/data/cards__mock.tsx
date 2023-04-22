@@ -1,4 +1,4 @@
-const card__mock = [
+const cards__mock = [
   {
     name: "Blue Business Cash",
     issuer: "American Express",
@@ -4370,4 +4370,4 @@ const card__mock = [
   },
 ];
 
-export default card__mock;
+export default cards__mock;
