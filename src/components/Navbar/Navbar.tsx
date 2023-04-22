@@ -9,7 +9,7 @@ const Navbar = () => {
   const global = useContext(DataContext);
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar border-b-[1px] border-slate-500 bg-base-100 ">
       <div className="flex-1">
         <a className="btn-ghost btn font-serif text-xl normal-case">
           Credacity
