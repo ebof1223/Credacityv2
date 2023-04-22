@@ -7,6 +7,6 @@
     @apply flex flex-wrap justify-around border-b border-gray-200 text-center text-sm font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400;
   }
   .btn-child {
-    @apply btn-ghost btn text-xl normal-case;
+    @apply btn-ghost btn w-60 text-xl normal-case;
   }
 }
