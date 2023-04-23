@@ -12,10 +12,12 @@ import { useState } from "react";
 import cards__mock from "~/data/cards__mock";
 import { DataContext } from "~/context/DataContext";
 import type { CardData } from "~/interface";
+
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
+  //displays all cards, initially all boxes are checked
   const [display, setDisplay] = useState<CardData[]>([...cards__mock]);
   return (
     <ClerkProvider {...pageProps}>
