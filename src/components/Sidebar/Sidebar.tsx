@@ -1,6 +1,7 @@
 import Issuers from "./Issuers";
 import Networks from "./Networks";
 import Types from "./Types";
+import Utility from "./Utility";
 
 const Sidebar = () => {
   return (
@@ -13,6 +14,9 @@ const Sidebar = () => {
       </button>
       <div className="divider" />
       <Networks />
+      <div className="divider" />
+      <Utility />
+      <div className="divider" />
     </div>
   );
 };
