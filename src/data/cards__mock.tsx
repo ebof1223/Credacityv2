@@ -3924,9 +3924,9 @@ const cards__mock = [
   },
   {
     name: "Business Altitude Connect",
-    issuer: "U.S. Bank",
+    issuer: "US Bank",
     network: "Mastercard",
-    currency: "U.S. Bank Points",
+    currency: "US Bank Points",
     isBusiness: true,
     annualFee: 95,
     isAnnualFeeWaived: true,
@@ -3949,9 +3949,9 @@ const cards__mock = [
   },
   {
     name: "Altitude Connect",
-    issuer: "U.S. Bank",
+    issuer: "US Bank",
     network: "Visa",
-    currency: "U.S. Bank Points",
+    currency: "US Bank Points",
     isBusiness: false,
     annualFee: 95,
     details: "Points cannot be transferred, so are valued at 1cpp.",
@@ -3975,7 +3975,7 @@ const cards__mock = [
   },
   {
     name: "Altitude Go",
-    issuer: "U.S. Bank",
+    issuer: "US Bank",
     network: "Visa",
     currency: "USD",
     isBusiness: false,
@@ -4001,9 +4001,9 @@ const cards__mock = [
   },
   {
     name: "Altitude Reserve",
-    issuer: "U.S. Bank",
+    issuer: "US Bank",
     network: "Visa",
-    currency: "U.S. Bank Points",
+    currency: "US Bank Points",
     isBusiness: false,
     annualFee: 400,
     isAnnualFeeWaived: false,
@@ -4028,7 +4028,7 @@ const cards__mock = [
   },
   {
     name: "Cash+",
-    issuer: "U.S. Bank",
+    issuer: "US Bank",
     network: "Visa",
     currency: "USD",
     isBusiness: false,
@@ -4053,9 +4053,9 @@ const cards__mock = [
   },
   {
     name: "FlexPerks Gold",
-    issuer: "U.S. Bank",
+    issuer: "US Bank",
     network: "American Express",
-    currency: "U.S. Bank Points",
+    currency: "US Bank Points",
     isBusiness: false,
     annualFee: 85,
     isAnnualFeeWaived: false,
@@ -4078,7 +4078,7 @@ const cards__mock = [
   },
   {
     name: "Business Leverage",
-    issuer: "U.S. Bank",
+    issuer: "US Bank",
     network: "Visa",
     currency: "USD",
     isBusiness: true,
@@ -4103,7 +4103,7 @@ const cards__mock = [
   },
   {
     name: "Business Triple Cash Rewards",
-    issuer: "U.S. Bank",
+    issuer: "US Bank",
     network: "Mastercard",
     currency: "USD",
     isBusiness: true,
@@ -4128,7 +4128,7 @@ const cards__mock = [
   },
   {
     name: "Skypass",
-    issuer: "U.S. Bank",
+    issuer: "US Bank",
     network: "Visa",
     currency: "Korean SkyPass Miles",
     isBusiness: false,
@@ -4160,7 +4160,7 @@ const cards__mock = [
   },
   {
     name: "Skypass Select",
-    issuer: "U.S. Bank",
+    issuer: "US Bank",
     network: "Visa",
     currency: "Korean SkyPass Miles",
     isBusiness: false,
@@ -4200,7 +4200,7 @@ const cards__mock = [
   },
   {
     name: "Skypass Business",
-    issuer: "U.S. Bank",
+    issuer: "US Bank",
     network: "Visa",
     currency: "Korean SkyPass Miles",
     isBusiness: true,
@@ -4239,7 +4239,7 @@ const cards__mock = [
   },
   {
     name: "Shopper Cash Rewards",
-    issuer: "U.S. Bank",
+    issuer: "US Bank",
     network: "Visa",
     currency: "USD",
     isBusiness: false,

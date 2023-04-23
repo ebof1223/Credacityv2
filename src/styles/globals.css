@@ -9,4 +9,7 @@
   .btn-child {
     @apply btn-ghost btn w-60 text-xl normal-case;
   }
+  .divider {
+    @apply m-auto w-8/12 border-b-[1px] border-slate-500 pt-5;
+  }
 }

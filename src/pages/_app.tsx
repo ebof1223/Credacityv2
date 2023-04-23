@@ -17,7 +17,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
-  //displays all cards, assuming all boxes are checked
+  //initiall displays all cards all boxes are checked
   const [display, setDisplay] = useState<CardData[]>([...cards__mock]);
   return (
     <ClerkProvider {...pageProps}>
