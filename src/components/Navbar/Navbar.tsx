@@ -2,7 +2,7 @@ import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
 import { type ChangeEvent, useContext, useState } from "react";
 import profile from "~/assets/images/user.jpeg";
-import { DataContext } from "~/pages/DataContext";
+import { DataContext } from "~/context/DataContext";
 import cards__mock from "~/data/cards__mock";
 
 const Navbar = () => {
@@ -25,6 +25,7 @@ const Navbar = () => {
   const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
     e.target.value = "";
     setSearch("");
+    //this will eventuall change too all the cards filtered by checks
     setDisplay([]);
   };
 
