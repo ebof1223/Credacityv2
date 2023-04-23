@@ -1,12 +1,12 @@
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
 import { type ChangeEvent, useContext, useState } from "react";
-import profile from "~/assets/images/user.jpeg";
 import { DataContext } from "~/context/DataContext";
 import cards__mock from "~/data/cards__mock";
 
 const Navbar = () => {
   const user = useUser();
+  console.log(user);
   const { display, setDisplay } = useContext(DataContext);
   const [search, setSearch] = useState("");
 
@@ -62,7 +62,7 @@ const Navbar = () => {
                       src={"https://www.offeroptimist.com/" + item.imageUrl}
                       width={50}
                       height={50}
-                      alt="test"
+                      alt={item.name}
                     />
                     <a>{item.name}</a>
                   </div>
@@ -95,7 +95,13 @@ const Navbar = () => {
             <div className="mx-4">
               <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
                 <div className="w-10 rounded-full">
-                  <Image src={profile} alt="user" />
+                  <Image
+                    loader={() => user.user.profileImageUrl}
+                    src={user.user.profileImageUrl}
+                    alt="user"
+                    width={200}
+                    height={200}
+                  />
                 </div>
               </label>
             </div>
