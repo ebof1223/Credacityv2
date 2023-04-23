@@ -1,7 +1,7 @@
-const Type = () => {
+const Types = () => {
   return (
-    <div className="flex flex-col items-center sm:flex-row sm:justify-around sm:pt-5">
-      <div className="flex items-center pb-5 pt-5">
+    <div className="flex flex-col items-center lg:flex-row lg:justify-around lg:pt-5">
+      <div className="flex items-center pb-1 pt-1">
         <input type="checkbox" className="checkbox checkbox-sm " />
         <label htmlFor="Personal" className="ml-2">
           Personal
@@ -16,4 +16,4 @@ const Type = () => {
     </div>
   );
 };
-export default Type;
+export default Types;

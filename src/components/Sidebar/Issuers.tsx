@@ -1,4 +1,4 @@
-const Issuer = () => {
+const Issuers = () => {
   return (
     <div className="mx-auto flex flex-col items-start">
       <div className="flex flex-col  ">
@@ -58,7 +58,15 @@ const Issuer = () => {
           </label>
         </div>
       </div>
+      <div className="flex flex-col  ">
+        <div className="flex pb-5 pt-5 ">
+          <input type="checkbox" className="checkbox checkbox-sm " />
+          <label htmlFor="Discover" className="ml-2">
+            Discover
+          </label>
+        </div>
+      </div>
     </div>
   );
 };
-export default Issuer;
+export default Issuers;
