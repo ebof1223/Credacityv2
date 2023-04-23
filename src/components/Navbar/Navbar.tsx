@@ -1,7 +1,7 @@
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
 import { type ChangeEvent, useContext, useState } from "react";
-import { DataContext } from "~/pages/DataContext";
+import { DataContext } from "~/context/DataContext";
 import cards__mock from "~/data/cards__mock";
 
 const Navbar = () => {

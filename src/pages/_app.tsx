@@ -10,7 +10,7 @@ import "~/styles/globals.css";
 import { useState } from "react";
 
 import cards__mock from "~/data/cards__mock";
-import { DataContext } from "./DataContext";
+import { DataContext } from "~/context/DataContext";
 import type { CardData } from "~/interface";
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
