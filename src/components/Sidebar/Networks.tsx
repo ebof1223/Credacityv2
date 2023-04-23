@@ -1,7 +1,7 @@
 const Networks = () => {
   return (
-    <div className="mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between lg:pt-5">
-      <div className="mr-1 flex items-center pb-5 pt-5">
+    <div className="mx-auto mt-4 flex flex-col items-start lg:flex-row lg:justify-between">
+      <div className="flex items-center ">
         <input type="checkbox" className="checkbox checkbox-sm " />
         <label htmlFor="Visa" className="ml-1 mr-2">
           Visa
@@ -13,10 +13,10 @@ const Networks = () => {
           Mastercard
         </label>
       </div>
-      <div className="flex items-center pb-5 pt-5">
+      <div className="flex items-center  ">
         <input type="checkbox" className="checkbox checkbox-sm " />
         <label htmlFor="American Express" className="ml-1 mr-2">
-          American Express
+          Amex
         </label>
       </div>
       <div className="flex items-center ">

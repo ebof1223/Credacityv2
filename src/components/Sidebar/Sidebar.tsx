@@ -6,7 +6,7 @@ import Utility from "./Utility";
 
 const Sidebar = () => {
   return (
-    <div className="flex max-w-full flex-col justify-center overflow-y-auto border-slate-500 md:w-5/12 md:border-r-[1px]">
+    <div className=" flex flex-col  overflow-y-auto border-slate-500 md:w-5/12 md:border-r-[1px]">
       <Types />
       <div className="divider" />
       <Issuers />
