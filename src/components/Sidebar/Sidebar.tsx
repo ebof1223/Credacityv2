@@ -6,7 +6,7 @@ import Utility from "./Utility";
 
 const Sidebar = () => {
   return (
-    <div className=" flex flex-col  overflow-y-auto border-slate-500 md:w-5/12 md:border-r-[1px]">
+    <div className=" flex flex-col border-slate-500 md:w-5/12 md:border-r-[1px]">
       <Types />
       <div className="divider" />
       <Issuers />
@@ -19,7 +19,6 @@ const Sidebar = () => {
       <Utility />
       <div className="divider" />
       <Miscellaneous />
-      <div className="divider" />
     </div>
   );
 };

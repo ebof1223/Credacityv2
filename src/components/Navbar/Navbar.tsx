@@ -9,7 +9,7 @@ import Login from "./Login";
 const Navbar = () => {
   const { display, setDisplay } = useContext(DataContext);
   const [search, setSearch] = useState("");
-
+  console.log(display);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const cards = [...cards__mock];
     const { value } = e.target;
