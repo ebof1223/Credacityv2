@@ -1,14 +1,14 @@
-export interface credit {
+export interface Credit {
   value: number;
   description: string;
   weight: number;
 }
 
-export interface offer {
+export interface Offer {
   amount: { amount: number }[];
   spend: number;
   days: number;
-  credits: credit[];
+  credits: Credit[];
   expiration?: string;
   url?: string;
   details?: string;
@@ -22,11 +22,11 @@ export interface CardData {
   annualFee: number;
   isAnnualFeeWaived: boolean;
   universalCashbackPercent: number;
-  credits: credit[];
+  credits: Credit[];
   url: string;
   imageUrl: string;
-  offers: offer[];
-  historicalOffers: offer[];
+  offers: Offer[];
+  historicalOffers: Offer[];
 }
 
 export interface Datapoint {
@@ -49,8 +49,40 @@ export interface Datapoint {
   notes: string;
 }
 
-export interface currentCardDisplay {
+export interface CurrentCardDisplay {
   isBusiness: boolean;
   issuer: string;
   cards: CardData[];
+}
+
+export interface Filters {
+  type: {
+    personal: boolean;
+    business: boolean;
+  };
+  issuer: {
+    amex: boolean;
+    chase: boolean;
+    bofa: boolean;
+    usb: boolean;
+    cap1: boolean;
+    citi: boolean;
+    barclays: boolean;
+    wellsfargo: boolean;
+    discover: boolean;
+  };
+  network: {
+    americanexpress: boolean;
+    visa: boolean;
+    mastercard: boolean;
+    discover: boolean;
+  };
+  utility: {
+    cashback: boolean;
+    travel: boolean;
+  };
+  misc: {
+    524: boolean;
+    highestoffer: boolean;
+  };
 }

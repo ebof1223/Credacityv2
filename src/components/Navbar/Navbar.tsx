@@ -1,26 +1,18 @@
 import { type ChangeEvent, useContext, useState } from "react";
 
-import { DataContext } from "~/context/DataContext";
-import cards__mock from "~/data/cards__mock";
+import { AppData } from "~/context/AppData";
 
 import Search from "./Search";
 import Login from "./Login";
 
 const Navbar = () => {
-  const { display, setDisplay } = useContext(DataContext);
+  const { display, setDisplay } = useContext(AppData);
   const [search, setSearch] = useState("");
-  console.log(display);
+  // console.log(display);
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const cards = [...cards__mock];
     const { value } = e.target;
     setSearch(value);
-    setDisplay(
-      cards.filter(
-        (card) =>
-          card.name.toLowerCase().includes(value.toLowerCase()) ||
-          card.issuer.toLowerCase().includes(value.toLowerCase())
-      )
-    );
   };
   const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
     e.target.value = "";

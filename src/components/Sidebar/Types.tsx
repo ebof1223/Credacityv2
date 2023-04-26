@@ -1,30 +1,22 @@
-import { useContext, useEffect, useState } from "react";
-import { DataContext } from "~/context/DataContext";
-import cards__mock from "~/data/cards__mock";
-
+import { useContext } from "react";
+import { AppData } from "~/context/AppData";
 const Types = () => {
-  const [type, setType] = useState({ personal: true, business: true });
-  const { setDisplay } = useContext(DataContext);
+  const { filters, setFilters } = useContext(AppData);
 
-  useEffect(() => {
-    switch (true) {
-      case type.personal && type.business:
-        setDisplay([...cards__mock]);
-        break;
-      case type.personal && !type.business:
-        setDisplay([...cards__mock.filter((card) => card.isBusiness)]);
-        break;
-      case !type.personal && type.business:
-        setDisplay([...cards__mock.filter((card) => !card.isBusiness)]);
-        break;
-      case !type.personal && !type.business:
-        setDisplay([]);
-        break;
-    }
-  }, [setDisplay, type]);
+  const handlePersonalChange = () => {
+    const type = {
+      ...filters.type,
+      personal: !filters.type.personal,
+    };
+    setFilters({ ...filters, type });
+  };
 
-  const handlePersonal = () => {
-    setType({ ...type, personal: !type.personal });
+  const handleBusinessChange = () => {
+    const type = {
+      ...filters.type,
+      business: !filters.type.business,
+    };
+    setFilters({ ...filters, type });
   };
   return (
     <div className="mx-auto flex flex-col items-start lg:flex-row lg:items-center lg:pt-7 ">
@@ -32,8 +24,8 @@ const Types = () => {
         <input
           type="checkbox"
           className="checkbox checkbox-sm "
-          checked={type.personal}
-          onChange={handlePersonal}
+          checked={filters.type.personal}
+          onChange={handlePersonalChange}
         />
         <label htmlFor="Personal" className="ml-2">
           Personal
@@ -42,9 +34,9 @@ const Types = () => {
       <div className="justfy-start flex items-center ">
         <input
           type="checkbox"
-          checked={type.business}
+          checked={filters.type.business}
           className="checkbox checkbox-sm lg:ml-5"
-          onChange={() => setType({ ...type, business: !type.business })}
+          onChange={handleBusinessChange}
         />
         <label htmlFor="Business" className="ml-2">
           Business
