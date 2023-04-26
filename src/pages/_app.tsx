@@ -44,17 +44,13 @@ const MyApp: AppType<{ session: Session | null }> = ({
   });
 
   useEffect(() => {
-    //type
     const cardsCopy = [...cards__mock];
     let displayCopy: CardData[] = [];
     for (const card of cardsCopy) {
-      // if (card.network == "American Express")
-      //   console.log(card.network.toLowerCase().trim());
       //type
       if (!card.isBusiness && !filters.type.personal) continue;
       if (card.isBusiness && !filters.type.business) continue;
       //network
-      //condition for amex abbr.
       if (
         !filters.network[
           card.network.toLowerCase().replace(/\s+/g, "") as keyof boolean
@@ -62,8 +58,11 @@ const MyApp: AppType<{ session: Session | null }> = ({
       )
         continue;
 
+      //utility
+      if (card.currency == "USD" && !filters.utility.cashback) continue;
+      if (card.currency !== "USD" && !filters.utility.travel) continue;
+
       displayCopy = [...displayCopy, card];
-      // }
     }
 
     setDisplay(displayCopy);
