@@ -3,20 +3,20 @@ import type { CardData } from "~/interface";
 
 interface SearchProps {
   props: {
-    display: CardData[];
+    results: CardData[];
     search: string;
   };
 }
 
 const Search = ({ props }: SearchProps) => {
-  const { display, search } = props;
+  const { search, results } = props;
   return (
     <ul
       tabIndex={0}
       className="dropdown-content menu rounded-box w-80 bg-base-100 p-4 shadow"
     >
       {/* needs remove spaces and periods from target.val */}
-      {display.slice(0, 5).map((item) => (
+      {results.slice(0, 5).map((item) => (
         <li key={item.name}>
           <div>
             <Image
@@ -30,12 +30,12 @@ const Search = ({ props }: SearchProps) => {
           </div>
         </li>
       ))}
-      {display.length > 5 && (
+      {results.length > 5 && (
         <li>
           <a className="justify-center text-xs">See more results</a>
         </li>
       )}
-      {!display.length && search && (
+      {!results.length && search && (
         <li>
           <sub className="pointer-events-none justify-start text-xs">
             No results found

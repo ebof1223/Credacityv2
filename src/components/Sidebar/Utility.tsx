@@ -20,7 +20,7 @@ const Utility = () => {
             handleChange("cashback");
           }}
         />
-        <label htmlFor="Counts towards 5/24" className="ml-2">
+        <label htmlFor="Cashback" className="ml-2">
           Cashback
         </label>
       </div>
@@ -33,7 +33,7 @@ const Utility = () => {
             handleChange("travel");
           }}
         />
-        <label htmlFor="Currently highest offer" className="ml-2">
+        <label htmlFor="travel" className="ml-2">
           Travel
         </label>
       </div>

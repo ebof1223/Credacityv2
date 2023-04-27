@@ -4,21 +4,29 @@ import { AppData } from "~/context/AppData";
 
 import Search from "./Search";
 import Login from "./Login";
+import cards__mock from "~/data/cards__mock";
 
 const Navbar = () => {
-  const { display, setDisplay } = useContext(AppData);
+  const { results, setResults } = useContext(AppData);
   const [search, setSearch] = useState("");
-  // console.log(display);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const cards = [...cards__mock];
     const { value } = e.target;
     setSearch(value);
+    setResults(
+      cards.filter(
+        (card) =>
+          card.name.toLowerCase().includes(value.toLowerCase()) ||
+          card.issuer.toLowerCase().includes(value.toLowerCase())
+      )
+    );
   };
   const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
     e.target.value = "";
     setSearch("");
     //this will eventuall change too all the cards filtered by checks
-    setDisplay([]);
+    setResults([]);
   };
 
   return (
@@ -37,7 +45,7 @@ const Navbar = () => {
             }}
             onBlur={(e) => handleBlur(e)}
           />
-          {search && <Search props={{ display, search }} />}
+          {search && <Search props={{ results, search }} />}
         </div>
       </div>
       <Login />

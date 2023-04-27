@@ -19,7 +19,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   //initiall displays all cards all boxes are checked
   const [display, setDisplay] = useState<CardData[]>([]);
-
+  const [results, setResults] = useState<CardData[]>([...cards__mock]);
   const [filters, setFilters] = useState({
     type: { personal: true, business: true },
     issuer: {
@@ -72,7 +72,16 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <ClerkProvider {...pageProps}>
       <SessionProvider session={session}>
-        <AppData.Provider value={{ display, setDisplay, filters, setFilters }}>
+        <AppData.Provider
+          value={{
+            display,
+            setDisplay,
+            filters,
+            setFilters,
+            results,
+            setResults,
+          }}
+        >
           <Component {...pageProps} />
         </AppData.Provider>
       </SessionProvider>
