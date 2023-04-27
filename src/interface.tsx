@@ -82,7 +82,6 @@ export interface Filters {
     travel: boolean;
   };
   misc: {
-    524: boolean;
     highestoffer: boolean;
   };
 }

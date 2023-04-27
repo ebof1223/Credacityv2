@@ -40,7 +40,8 @@ const MyApp: AppType<{ session: Session | null }> = ({
       discover: true,
     },
     utility: { cashback: true, travel: true },
-    misc: { 524: true, highestoffer: true },
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+    misc: { highestoffer: true },
   });
 
   useEffect(() => {
