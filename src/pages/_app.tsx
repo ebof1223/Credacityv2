@@ -62,7 +62,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
     setDisplay(displayCopy);
   }, [filters]);
 
-  // console.log("DISPLAY", display);
+  console.log("DISPLAY", display);
   // console.log("RESULTS", results);
   return (
     <ClerkProvider {...pageProps}>
