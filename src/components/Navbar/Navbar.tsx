@@ -1,14 +1,14 @@
-import { type ChangeEvent, useContext, useState } from "react";
+import { type ChangeEvent, useContext, useState } from 'react';
 
-import { AppData } from "~/context/AppData";
+import { AppData } from '~/context/AppData';
 
-import Search from "./Search";
-import Login from "./Login";
-import cards__mock from "~/data/cards__mock";
+import Search from './Search';
+import Login from './Login';
+import cards__mock from '~/data/cards__mock';
 
 const Navbar = () => {
   const { results, setResults } = useContext(AppData);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const cards = [...cards__mock];
@@ -17,15 +17,26 @@ const Navbar = () => {
     setResults(
       cards.filter(
         (card) =>
-          card.name.toLowerCase().includes(value.toLowerCase()) ||
-          card.issuer.toLowerCase().includes(value.toLowerCase())
+          card.name
+            .toLowerCase()
+            // .replace(/\s+/g, '')
+            .includes(
+              value.toLowerCase()
+              // .replace(/\s+/g, '')
+            ) ||
+          card.issuer
+            .toLowerCase()
+            // .replace(/\s+/g, '')
+            .includes(
+              value.toLowerCase()
+              // .replace(/\s+/g, '')
+            )
       )
     );
   };
   const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
-    e.target.value = "";
-    setSearch("");
-    //this will eventuall change too all the cards filtered by checks
+    e.target.value = '';
+    setSearch('');
     setResults([]);
   };
 
