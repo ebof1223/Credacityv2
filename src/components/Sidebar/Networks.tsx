@@ -9,53 +9,26 @@ const Networks = () => {
     const network = { ...filters.network, [update]: bool };
     setFilters({ ...filters, network });
   };
+
   return (
     <div className="mx-auto mt-4 flex flex-col items-start lg:flex-row lg:justify-between">
-      <div className="flex items-center ">
-        <input
-          checked={filters.network.visa}
-          type="checkbox"
-          className="checkbox checkbox-sm "
-          onChange={() => handleChange("visa")}
-        />
-        <label htmlFor="Visa" className="ml-1 mr-2">
-          Visa
-        </label>
-      </div>
-      <div className="flex items-center ">
-        <input
-          type="checkbox"
-          checked={filters.network.mastercard}
-          className="checkbox checkbox-sm"
-          onChange={() => handleChange("mastercard")}
-        />
-        <label htmlFor="Mastercard" className="ml-1 mr-2">
-          Mastercard
-        </label>
-      </div>
-
-      <div className="flex items-center  ">
-        <input
-          type="checkbox"
-          checked={filters.network.americanexpress}
-          className="checkbox checkbox-sm "
-          onChange={() => handleChange("americanexpress")}
-        />
-        <label htmlFor="American Express" className="ml-1 mr-2">
-          Amex
-        </label>
-      </div>
-      <div className="flex items-center ">
-        <input
-          type="checkbox"
-          checked={filters.network.discover}
-          className="checkbox checkbox-sm"
-          onChange={() => handleChange("discover")}
-        />
-        <label htmlFor="Discover" className="ml-1">
-          Discover
-        </label>
-      </div>
+      {["Visa", "Mastercard", "American Express"].map((x) => (
+        <div className="flex items-center sm:mt-3 " key={x}>
+          <input
+            checked={
+              filters.network[
+                x.toLowerCase().replace(/\s+/g, "") as keyof boolean
+              ]
+            }
+            type="checkbox"
+            className="checkbox checkbox-sm "
+            onChange={() => handleChange(x.toLowerCase().replace(/\s+/g, ""))}
+          />
+          <label htmlFor="Visa" className="ml-1 mr-2">
+            {x}
+          </label>
+        </div>
+      ))}
     </div>
   );
 };

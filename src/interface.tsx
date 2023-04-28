@@ -61,11 +61,11 @@ export interface Filters {
     business: boolean;
   };
   issuer: {
-    amex: boolean;
+    americanexpress: boolean;
     chase: boolean;
-    bofa: boolean;
-    usb: boolean;
-    cap1: boolean;
+    bankofamerica: boolean;
+    usbank: boolean;
+    capitalone: boolean;
     citi: boolean;
     barclays: boolean;
     wellsfargo: boolean;

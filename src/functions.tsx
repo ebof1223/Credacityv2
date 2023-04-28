@@ -4,6 +4,15 @@ interface IncomeStorage {
   [key: string]: Datapoint[];
 }
 
+interface Offer {
+  amount: { amount: number }[];
+  spend: number;
+  days: number;
+  credits: { value: number; description: string; weight: number }[];
+  url?: string;
+  details?: string;
+}
+
 //convert aaoa to int for x-axis-
 export const aaoaToInt = (ageAsString: string): number => {
   let age = 0;
@@ -45,4 +54,15 @@ export const getKeyValueStorage = (data: Datapoint[]) => {
   }
 
   return storage;
+};
+
+export const isHighestOffer = (current: Offer[], historical: Offer[]) => {
+  const currentArr: number | undefined[] = [];
+  const historicalArr: (number | undefined)[] = [];
+  current.forEach((offer) => currentArr.push(offer.amount[0]?.amount));
+  historical.forEach((offer) => historicalArr.push(offer.amount[0]?.amount));
+  const currentHigh = Math.max(...currentArr);
+  const historicalHigh = Math.max(...historicalArr);
+  if (currentHigh < historicalHigh) return true;
+  return false;
 };
