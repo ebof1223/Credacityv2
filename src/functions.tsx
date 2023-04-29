@@ -1,4 +1,4 @@
-import type { Datapoint } from './interface';
+import type { Datapoint, Filters } from './interface';
 
 interface IncomeStorage {
   [key: string]: Datapoint[];
@@ -74,3 +74,17 @@ export const getAbsStrMatch = (card1: string, value: string) => {
       .replace(/\s+/g, '')
   );
 };
+
+export const toggleFilter = (update:string,filters) => {
+
+  const bool = !filter[update as keyof boolean];
+  //change filters
+  //
+  // setFilters({...filters, {...filters[update as keyof boolean], [update]:boolean}});
+}
+
+  // const handleChange = (update: string) => {
+  //   const bool = !filters.network[update as keyof boolean];
+  //   const network = { ...filters.network, [update]: bool };
+  //   setFilters({ ...filters, network });
+  // };

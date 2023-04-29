@@ -1,12 +1,13 @@
-import { useContext } from "react";
-import { AppData } from "~/context/AppData";
+import { useContext } from 'react';
+import { AppData } from '~/context/AppData';
 const Types = () => {
   const { filters, setFilters } = useContext(AppData);
 
   const handleChange = (update: string) => {
+    const bool = !filters.type[update as keyof boolean];
+    const type = { ...filters.type, [update]: bool };
     const type = {
       ...filters.type,
-      [update]: !filters.type[update as keyof boolean],
     };
 
     setFilters({ ...filters, type });
@@ -18,7 +19,7 @@ const Types = () => {
           type="checkbox"
           className="checkbox checkbox-sm "
           checked={filters.type.personal}
-          onChange={() => handleChange("personal")}
+          onChange={() => handleChange('personal')}
         />
         <label htmlFor="Personal" className="ml-2">
           Personal
@@ -29,7 +30,7 @@ const Types = () => {
           type="checkbox"
           checked={filters.type.business}
           className="checkbox checkbox-sm lg:ml-5"
-          onChange={() => handleChange("business")}
+          onChange={() => handleChange('business')}
         />
         <label htmlFor="Business" className="ml-2">
           Business
