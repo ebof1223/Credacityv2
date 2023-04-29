@@ -1,19 +1,19 @@
-import { type AppType } from "next/app";
-import { type Session } from "next-auth";
-import { SessionProvider } from "next-auth/react";
-import { ClerkProvider } from "@clerk/nextjs";
+import { type AppType } from 'next/app';
+import { type Session } from 'next-auth';
+import { SessionProvider } from 'next-auth/react';
+import { ClerkProvider } from '@clerk/nextjs';
+import { useEffect, useState } from 'react';
 
-import { api } from "~/utils/api";
+import { api } from '~/utils/api';
 
-import "~/styles/globals.css";
+import '~/styles/globals.css';
 
-import { useEffect, useState } from "react";
+import { AppData } from '~/context/AppData';
 
-import cards__mock from "~/data/cards__mock";
-import { AppData } from "~/context/AppData";
-import type { CardData } from "~/interface";
-import defaults from "~/data/filters";
-import { isHighestOffer } from "~/functions";
+import defaults from '~/data/filters';
+import cards__mock from '~/data/cards__mock';
+import type { CardData } from '~/interface';
+import { isHighestOffer } from '~/functions';
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -33,19 +33,19 @@ const MyApp: AppType<{ session: Session | null }> = ({
       //network
       if (
         !filters.network[
-          card.network.toLowerCase().replace(/\s+/g, "") as keyof boolean
+          card.network.toLowerCase().replace(/\s+/g, '') as keyof boolean
         ]
       )
         continue;
 
       //utility
-      if (card.currency == "USD" && !filters.utility.cashback) continue;
-      if (card.currency !== "USD" && !filters.utility.travel) continue;
+      if (card.currency == 'USD' && !filters.utility.cashback) continue;
+      if (card.currency !== 'USD' && !filters.utility.travel) continue;
 
       //isuers
       if (
         !filters.issuer[
-          card.issuer.toLowerCase().replace(/\s+/g, "") as keyof boolean
+          card.issuer.toLowerCase().replace(/\s+/g, '') as keyof boolean
         ]
       ) {
         continue;
@@ -63,6 +63,8 @@ const MyApp: AppType<{ session: Session | null }> = ({
 
   // console.log("DISPLAY", display);
   // console.log("RESULTS", results);
+
+  //warning message, filters currently 'not applicable' due to user utilizing search
   return (
     <ClerkProvider {...pageProps}>
       <SessionProvider session={session}>

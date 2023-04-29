@@ -1,11 +1,11 @@
-import Issuers from "./Issuers";
-import Miscellaneous from "./Miscellaneous";
-import Networks from "./Networks";
-import Types from "./Types";
-import Utility from "./Utility";
+import Issuers from './Issuers';
+import Miscellaneous from './Miscellaneous';
+import Networks from './Networks';
+import Types from './Types';
+import Utility from './Utility';
 
-import { useContext } from "react";
-import { AppData } from "~/context/AppData";
+import { useContext } from 'react';
+import { AppData } from '~/context/AppData';
 
 const Sidebar = () => {
   const { filters, setFilters } = useContext(AppData);
@@ -29,6 +29,7 @@ const Sidebar = () => {
       >
         Toggle All
       </button>
+      {/* handlechange abstract */}
       <div className="divider" />
       <Networks />
       <div className="divider" />

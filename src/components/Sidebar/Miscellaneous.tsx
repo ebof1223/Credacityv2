@@ -22,7 +22,7 @@ const Miscellaneous = () => {
               handleChange("highestoffer");
             }}
           />
-          <label htmlFor=" Currently highest offer" className="ml-2">
+          <label htmlFor="Currently highest offer" className="ml-2">
             Currently highest offer
           </label>
         </div>

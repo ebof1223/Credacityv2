@@ -1,5 +1,5 @@
-import Image from "next/image";
-import type { CardData } from "~/interface";
+import Image from 'next/image';
+import type { CardData } from '~/interface';
 
 interface SearchProps {
   props: {
@@ -9,7 +9,13 @@ interface SearchProps {
 }
 
 const Search = ({ props }: SearchProps) => {
-  const { search, results } = props;
+  const { search, results, setDisplay, setResults } = props;
+
+  // const handleChange = () => {
+
+  //   setDisplay([...results])
+  //   setResults([f])
+  // }
   return (
     <ul
       tabIndex={0}
@@ -19,8 +25,8 @@ const Search = ({ props }: SearchProps) => {
         <li key={item.name}>
           <div>
             <Image
-              loader={() => "https://www.offeroptimist.com/" + item.imageUrl}
-              src={"https://www.offeroptimist.com/" + item.imageUrl}
+              loader={() => 'https://www.offeroptimist.com/' + item.imageUrl}
+              src={'https://www.offeroptimist.com/' + item.imageUrl}
               width={50}
               height={50}
               alt={item.name}
@@ -30,8 +36,14 @@ const Search = ({ props }: SearchProps) => {
         </li>
       ))}
       {results.length > 5 && (
+        //button?
         <li>
-          <a className="justify-center text-xs">See more results</a>
+          <a
+            className="justify-center text-xs"
+            //  onChange={handleChange}
+          >
+            See more results
+          </a>
         </li>
       )}
       {!results.length && search && (
