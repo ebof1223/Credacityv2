@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useUser } from "@clerk/nextjs";
 
 const Login = () => {
-  //{user}?
   const user = useUser();
   return (
     <div className="flex-none gap-2">

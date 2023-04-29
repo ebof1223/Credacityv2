@@ -8,7 +8,11 @@ const Issuers = () => {
     const issuer = { ...filters.issuer, [update]: bool };
     setFilters({ ...filters, issuer });
   };
-
+  console.log(
+    typeof filters.issuer[
+      "American Express".toLowerCase().replace(/\s+/g, "") as keyof boolean
+    ]
+  );
   return (
     <div className="mx-auto flex flex-col items-start">
       {[
@@ -20,7 +24,7 @@ const Issuers = () => {
 
         ["Barclays", "Wells Fargo"],
       ].map((block, i) => (
-        <div className="flex flex-col" key={`block ${i}`}>
+        <div className="flex flex-col" key={`block ${i + 1}`}>
           {block.map((iss) => (
             <div className="flex pb-5 pt-5 " key={iss}>
               <input

@@ -19,7 +19,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
-  //initiall displays all cards all boxes are checked
   const [display, setDisplay] = useState<CardData[]>([...cards__mock]);
   const [results, setResults] = useState<CardData[]>([]);
   const [filters, setFilters] = useState(defaults);
@@ -62,7 +61,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
     setDisplay(displayCopy);
   }, [filters]);
 
-  console.log("DISPLAY", display);
+  // console.log("DISPLAY", display);
   // console.log("RESULTS", results);
   return (
     <ClerkProvider {...pageProps}>
