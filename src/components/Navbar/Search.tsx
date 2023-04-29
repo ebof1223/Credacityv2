@@ -15,7 +15,6 @@ const Search = ({ props }: SearchProps) => {
       tabIndex={0}
       className="dropdown-content menu rounded-box w-80 bg-base-100 p-4 shadow"
     >
-      {/* needs remove spaces and periods from target.val */}
       {results.slice(0, 5).map((item) => (
         <li key={item.name}>
           <div>

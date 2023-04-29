@@ -1,14 +1,16 @@
-import { type ChangeEvent, useContext, useState } from "react";
+import { type ChangeEvent, useContext, useState } from 'react';
 
-import { AppData } from "~/context/AppData";
+import { AppData } from '~/context/AppData';
 
-import Search from "./Search";
-import Login from "./Login";
-import cards__mock from "~/data/cards__mock";
+import Search from './Search';
+import Login from './Login';
+
+import cards__mock from '~/data/cards__mock';
+import getAbsStrMatch from '~/functions';
 
 const Navbar = () => {
   const { results, setResults } = useContext(AppData);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const cards = [...cards__mock];
@@ -16,21 +18,21 @@ const Navbar = () => {
     setSearch(value);
     setResults(
       cards.filter(
-        (card) =>
-          card.name
-            .toLowerCase()
-            .replace(/\s+/g, "")
-            .includes(value.toLowerCase().replace(/\s+/g, "")) ||
-          card.issuer
-            .toLowerCase()
-            .replace(/\s+/g, "")
-            .includes(value.toLowerCase().replace(/\s+/g, ""))
+        (card) => getAbsStrMatch(card.name, value) || (card.issuer, value)
+        // card.name
+        //   .toLowerCase()
+        //   .replace(/\s+/g, "")
+        //   .includes(value.toLowerCase().replace(/\s+/g, "")) ||
+        // card.issuer
+        //   .toLowerCase()
+        //   .replace(/\s+/g, "")
+        //   .includes(value.toLowerCase().replace(/\s+/g, ""))
       )
     );
   };
   const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
-    e.target.value = "";
-    setSearch("");
+    e.target.value = '';
+    setSearch('');
     setResults([]);
   };
 
