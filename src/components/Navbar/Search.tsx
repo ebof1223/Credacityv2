@@ -44,7 +44,6 @@ const Search = () => {
           {search && <Results props={{ search, setSearch }} />}
         </div>
       </div>
-      {/* <Login /> */}
     </>
   );
 };
