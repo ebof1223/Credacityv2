@@ -12,22 +12,22 @@ const Networks = () => {
 
   return (
     <div className="mx-auto mt-4 flex flex-col items-start lg:flex-row lg:justify-between">
-      {["Visa", "Mastercard", "American Express"].map((x) => (
-        <div className="flex items-center sm:mt-3 " key={x}>
+      {["Visa", "Mastercard", "American Express"].map((net) => (
+        <div className="flex items-center sm:mt-3 " key={net}>
           <input
             checked={
               filters.network[
-                x
+                net
                   .toLowerCase()
                   .replace(/\s+/g, "") as keyof typeof filters.network
               ]
             }
             type="checkbox"
             className="checkbox checkbox-sm "
-            onChange={() => handleChange(x.toLowerCase().replace(/\s+/g, ""))}
+            onChange={() => handleChange(net.toLowerCase().replace(/\s+/g, ""))}
           />
           <label htmlFor="Visa" className="ml-1 mr-2">
-            {x}
+            {net}
           </label>
         </div>
       ))}
