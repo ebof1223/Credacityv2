@@ -5,14 +5,10 @@ const Issuers = () => {
   const { filters, setFilters } = useContext(AppData);
   const handleChange = (update: string) => {
     const bool = !filters.issuer[update as keyof boolean];
-    const issuer = { ...filters.issuer, [update]: bool };
+    const issuer = { ...filters.issuer, bool };
     setFilters({ ...filters, issuer });
   };
-  console.log(
-    typeof filters.issuer[
-      "American Express".toLowerCase().replace(/\s+/g, "") as keyof boolean
-    ]
-  );
+
   return (
     <div className="mx-auto flex flex-col items-start">
       {[
@@ -32,7 +28,9 @@ const Issuers = () => {
                 className="checkbox checkbox-sm "
                 checked={
                   filters.issuer[
-                    iss.toLowerCase().replace(/\s+/g, "") as keyof boolean
+                    iss
+                      .toLowerCase()
+                      .replace(/\s+/g, "") as keyof typeof filters.issuer
                   ]
                 }
                 onChange={() =>

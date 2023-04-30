@@ -1,16 +1,16 @@
-import { type ChangeEvent, useContext, useState } from 'react';
+import { type ChangeEvent, useContext, useState } from "react";
 
-import { AppData } from '~/context/AppData';
+import { AppData } from "~/context/AppData";
 
-import Search from './Search';
-import Login from './Login';
+import Search from "./Search";
+import Login from "./Login";
 
-import cards__mock from '~/data/cards__mock';
-import getAbsStrMatch from '~/functions';
+import cards__mock from "~/data/cards__mock";
+import { getAbsStrMatch } from "~/functions";
 
 const Navbar = () => {
-  const { results, setResults } = useContext(AppData);
-  const [search, setSearch] = useState('');
+  const { setResults } = useContext(AppData);
+  const [search, setSearch] = useState("");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const cards = [...cards__mock];
@@ -18,21 +18,14 @@ const Navbar = () => {
     setSearch(value);
     setResults(
       cards.filter(
-        (card) => getAbsStrMatch(card.name, value) || (card.issuer, value)
-        // card.name
-        //   .toLowerCase()
-        //   .replace(/\s+/g, "")
-        //   .includes(value.toLowerCase().replace(/\s+/g, "")) ||
-        // card.issuer
-        //   .toLowerCase()
-        //   .replace(/\s+/g, "")
-        //   .includes(value.toLowerCase().replace(/\s+/g, ""))
+        (card) =>
+          getAbsStrMatch(card.name, value) || getAbsStrMatch(card.issuer, value)
       )
     );
   };
   const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
-    e.target.value = '';
-    setSearch('');
+    e.target.value = "";
+    setSearch("");
     setResults([]);
   };
 
@@ -52,7 +45,7 @@ const Navbar = () => {
             }}
             onBlur={(e) => handleBlur(e)}
           />
-          {search && <Search props={{ results, search }} />}
+          {search && <Search props={{ search }} />}
         </div>
       </div>
       <Login />

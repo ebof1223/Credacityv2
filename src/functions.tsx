@@ -1,4 +1,4 @@
-import type { Datapoint, Filters } from './interface';
+import type { Datapoint, Filters } from "./interface";
 
 interface IncomeStorage {
   [key: string]: Datapoint[];
@@ -16,18 +16,18 @@ interface Offer {
 //convert aaoa to int for x-axis-
 export const aaoaToInt = (ageAsString: string): number => {
   let age = 0;
-  const ageAsStringArray = ageAsString.split(',');
+  const ageAsStringArray = ageAsString.split(",");
   //[1,0,Y,e,a,r,s,3,M,o]
   for (const item of ageAsStringArray) {
-    let stringToAdd = '';
-    const itemNoWhiteSpace = item.replace(/ /g, '');
+    let stringToAdd = "";
+    const itemNoWhiteSpace = item.replace(/ /g, "");
     for (const char of itemNoWhiteSpace) {
       if (!isNaN(parseInt(char))) {
         stringToAdd += char;
-      } else if (char === 'Y') {
+      } else if (char === "Y") {
         age += parseInt(stringToAdd);
         break;
-      } else if (char === 'M') {
+      } else if (char === "M") {
         const decimalRounded =
           Math.round((parseInt(stringToAdd) / 12) * 100) / 100;
         age += decimalRounded;
@@ -67,24 +67,22 @@ export const isHighestOffer = (current: Offer[], historical: Offer[]) => {
   return false;
 };
 
-export const getAbsStrMatch = (card1: string, value: string) => {
-  return card1.toLowerCase().replace(/\s+/g, '').includes(
-    value
-      .toLowerCase()
-      .replace(/\s+/g, '')
-  );
+export const getAbsStrMatch = (card1: string, value: string): boolean => {
+  return card1
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .includes(value.toLowerCase().replace(/\s+/g, ""));
 };
 
-export const toggleFilter = (update:string,filters) => {
+// export const toggleFilter = (update: string, filters) => {
+//   const bool = !filter[update as keyof boolean];
+//change filters
+//
+// setFilters({...filters, {...filters[update as keyof boolean], [update]:boolean}});
+// };
 
-  const bool = !filter[update as keyof boolean];
-  //change filters
-  //
-  // setFilters({...filters, {...filters[update as keyof boolean], [update]:boolean}});
-}
-
-  // const handleChange = (update: string) => {
-  //   const bool = !filters.network[update as keyof boolean];
-  //   const network = { ...filters.network, [update]: bool };
-  //   setFilters({ ...filters, network });
-  // };
+// const handleChange = (update: string) => {
+//   const bool = !filters.network[update as keyof boolean];
+//   const network = { ...filters.network, [update]: bool };
+//   setFilters({ ...filters, network });
+// };

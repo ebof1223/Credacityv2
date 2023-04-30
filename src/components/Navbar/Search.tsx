@@ -1,21 +1,23 @@
-import Image from 'next/image';
-import type { CardData } from '~/interface';
+import Image from "next/image";
+import { useContext } from "react";
+import { AppData } from "~/context/AppData";
+import type { CardData } from "~/interface";
 
 interface SearchProps {
   props: {
-    results: CardData[];
     search: string;
   };
 }
 
 const Search = ({ props }: SearchProps) => {
-  const { search, results, setDisplay, setResults } = props;
-
+  const { search } = props;
+  const { setDisplay, setResults, results } = useContext(AppData);
   // const handleChange = () => {
+  //   // console.log("hello");
+  // setDisplay([...results]);
+  // setResults([]);
+  // };
 
-  //   setDisplay([...results])
-  //   setResults([f])
-  // }
   return (
     <ul
       tabIndex={0}
@@ -25,8 +27,8 @@ const Search = ({ props }: SearchProps) => {
         <li key={item.name}>
           <div>
             <Image
-              loader={() => 'https://www.offeroptimist.com/' + item.imageUrl}
-              src={'https://www.offeroptimist.com/' + item.imageUrl}
+              loader={() => "https://www.offeroptimist.com/" + item.imageUrl}
+              src={"https://www.offeroptimist.com/" + item.imageUrl}
               width={50}
               height={50}
               alt={item.name}
@@ -36,14 +38,8 @@ const Search = ({ props }: SearchProps) => {
         </li>
       ))}
       {results.length > 5 && (
-        //button?
         <li>
-          <a
-            className="justify-center text-xs"
-            //  onChange={handleChange}
-          >
-            See more results
-          </a>
+          <button className="justify-center text-xs">See more results</button>
         </li>
       )}
       {!results.length && search && (

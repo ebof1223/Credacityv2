@@ -1,11 +1,11 @@
-import Issuers from './Issuers';
-import Miscellaneous from './Miscellaneous';
-import Networks from './Networks';
-import Types from './Types';
-import Utility from './Utility';
+import Issuers from "./Issuers";
+import Miscellaneous from "./Miscellaneous";
+import Networks from "./Networks";
+import Types from "./Types";
+import Utility from "./Utility";
 
-import { useContext } from 'react';
-import { AppData } from '~/context/AppData';
+import { useContext } from "react";
+import { AppData } from "~/context/AppData";
 
 const Sidebar = () => {
   const { filters, setFilters } = useContext(AppData);
@@ -13,8 +13,12 @@ const Sidebar = () => {
   const handleClick = () => {
     const issuer = { ...filters.issuer };
     Object.values(issuer).every(Boolean)
-      ? Object.keys(issuer).forEach((v) => (issuer[v as keyof boolean] = false))
-      : Object.keys(issuer).forEach((v) => (issuer[v] = true));
+      ? Object.keys(issuer).forEach(
+          (v) => (issuer[v as keyof typeof issuer] = false)
+        )
+      : Object.keys(issuer).forEach(
+          (v) => (issuer[v as keyof typeof issuer] = true)
+        );
     setFilters({ ...filters, issuer });
   };
 
