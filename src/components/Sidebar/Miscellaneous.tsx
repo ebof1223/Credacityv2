@@ -11,7 +11,7 @@ const Miscellaneous = () => {
   };
 
   return (
-    <div className="mx-auto mt-6 flex flex-col items-start">
+    <div className="mx-auto mt-6 flex flex-col items-center">
       <div className="flex flex-col ">
         <div className="flex">
           <input
@@ -23,7 +23,7 @@ const Miscellaneous = () => {
             }}
           />
           <label htmlFor="Currently highest offer" className="ml-2">
-            Currently highest offer
+            Highest Offer
           </label>
         </div>
       </div>

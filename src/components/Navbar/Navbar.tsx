@@ -1,54 +1,44 @@
-import { type ChangeEvent, useContext, useState } from "react";
-
+import { useContext } from "react";
+import Alert from "./Alert";
+import Login from "./Login";
+import Search from "./Search";
 import { AppData } from "~/context/AppData";
 
-import Search from "./Search";
-import Login from "./Login";
-
-import cards__mock from "~/data/cards__mock";
-
 const Navbar = () => {
-  const { setResults } = useContext(AppData);
-  const [search, setSearch] = useState("");
-
-  const getAbsStrMatch = (card1: string, value: string): boolean => {
-    return card1
-      .toLowerCase()
-      .replace(/\s+/g, "")
-      .includes(value.toLowerCase().replace(/\s+/g, ""));
-  };
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const cards = [...cards__mock];
-    const { value } = e.target;
-    setSearch(value);
-    setResults(
-      cards.filter(
-        (card) =>
-          getAbsStrMatch(card.name, value) || getAbsStrMatch(card.issuer, value)
-      )
-    );
-  };
+  const { reapply } = useContext(AppData);
   return (
-    <div className="navbar border-b-[1px] border-slate-500 bg-base-100 ">
-      <div className="flex-1">
-        <a className="btn-ghost btn font-serif text-xl normal-case">churn.io</a>
+    <div className="navbar w-full bg-base-300">
+      <div className="flex-none lg:hidden">
+        <label htmlFor="my-drawer-3" className="btn-ghost btn-square btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            className="inline-block h-6 w-6 stroke-current"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </label>
       </div>
-      <div className="form-control mr-6">
-        <div className="dropdown">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input-bordered input w-52"
-            onChange={(e) => {
-              handleChange(e);
-            }}
-            value={search}
-          />
-          {search && <Search props={{ search, setSearch }} />}
-        </div>
+      <div className="btn-ghost btn mx-2 flex-1 px-2 text-xl normal-case lg:invisible ">
+        Churn.io
       </div>
-      <Login />
+      <div className=" flex-none ">
+        <ul className="menu-horizontal">
+          <li className=" hidden lg:flex lg:items-center">
+            {reapply && <Alert orientation={"right"} />}
+            <Search />
+          </li>
+          <li className="ml-5">
+            <Login />
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

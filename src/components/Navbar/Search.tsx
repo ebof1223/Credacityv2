@@ -1,60 +1,51 @@
-import Image from "next/image";
-import { useContext } from "react";
+import { type ChangeEvent, useContext, useState } from "react";
+
 import { AppData } from "~/context/AppData";
 
-interface SearchProps {
-  props: {
-    search: string;
-    setSearch: (search: string) => void;
-  };
-}
+import Results from "./Results";
 
-const Search = ({ props }: SearchProps) => {
-  const { search, setSearch } = props;
-  const { setDisplay, setResults, results, setReapply } = useContext(AppData);
+import cards__mock from "~/data/cards__mock";
 
-  const handleClick = () => {
-    setDisplay([...results]);
-    setResults([]);
-    setSearch("");
-    setReapply(true);
+const Search = () => {
+  const { setResults } = useContext(AppData);
+  const [search, setSearch] = useState("");
+
+  const getAbsStrMatch = (card1: string, value: string): boolean => {
+    return card1
+      .toLowerCase()
+      .replace(/\s+/g, "")
+      .includes(value.toLowerCase().replace(/\s+/g, ""));
   };
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const cards = [...cards__mock];
+    const { value } = e.target;
+    setSearch(value);
+    setResults(
+      cards.filter(
+        (card) =>
+          getAbsStrMatch(card.name, value) || getAbsStrMatch(card.issuer, value)
+      )
+    );
+  };
   return (
-    <ul
-      tabIndex={0}
-      className="dropdown-content menu rounded-box w-80 bg-base-100 p-4 shadow"
-    >
-      {results.slice(0, 5).map((item) => (
-        <li key={item.name}>
-          <div>
-            <Image
-              loader={() => "https://www.offeroptimist.com/" + item.imageUrl}
-              src={"https://www.offeroptimist.com/" + item.imageUrl}
-              width={50}
-              height={50}
-              alt={item.name}
-            />
-            <a>{item.name}</a>
-          </div>
-        </li>
-      ))}
-      {results.length > 5 && (
-        <li>
-          <a onClick={handleClick} className="justify-center text-xs">
-            See more results
-          </a>
-        </li>
-      )}
-      {!results.length && search && (
-        <li>
-          <sub className="pointer-events-none justify-start text-xs">
-            No results found
-          </sub>
-        </li>
-      )}
-    </ul>
+    <>
+      <div className="flex items-center justify-start">
+        <div className="dropdown">
+          <input
+            type="text"
+            placeholder="Search"
+            className="input-bordered input w-52"
+            onChange={(e) => {
+              handleChange(e);
+            }}
+            value={search}
+          />
+          {search && <Results props={{ search, setSearch }} />}
+        </div>
+      </div>
+      {/* <Login /> */}
+    </>
   );
 };
-
 export default Search;

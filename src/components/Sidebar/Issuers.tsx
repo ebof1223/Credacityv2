@@ -22,7 +22,7 @@ const Issuers = () => {
       ].map((block, i) => (
         <div className="flex flex-col" key={`block ${i + 1}`}>
           {block.map((iss) => (
-            <div className="flex pb-5 pt-5 " key={iss}>
+            <div className="flex pb-3 pt-3 " key={iss}>
               <input
                 type="checkbox"
                 className="checkbox checkbox-sm "

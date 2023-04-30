@@ -61,10 +61,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
     setDisplay(displayCopy);
   }, [filters]);
 
-  console.log("DISPLAY", display);
-  console.log("RESULTS", results);
+  // console.log("DISPLAY", display);
+  // console.log("RESULTS", results);
 
-  //warning message, filters currently 'not applicable' due to user utilizing search
   return (
     <ClerkProvider {...pageProps}>
       <SessionProvider session={session}>
