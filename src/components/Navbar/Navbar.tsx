@@ -6,11 +6,18 @@ import Search from "./Search";
 import Login from "./Login";
 
 import cards__mock from "~/data/cards__mock";
-import { getAbsStrMatch } from "~/functions";
+// import { getAbsStrMatch } from "~/functions";
 
 const Navbar = () => {
   const { setResults } = useContext(AppData);
   const [search, setSearch] = useState("");
+
+  const getAbsStrMatch = (card1: string, value: string): boolean => {
+    return card1
+      .toLowerCase()
+      .replace(/\s+/g, "")
+      .includes(value.toLowerCase().replace(/\s+/g, ""));
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const cards = [...cards__mock];
@@ -23,12 +30,6 @@ const Navbar = () => {
       )
     );
   };
-  const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
-    e.target.value = "";
-    setSearch("");
-    setResults([]);
-  };
-
   return (
     <div className="navbar border-b-[1px] border-slate-500 bg-base-100 ">
       <div className="flex-1">
@@ -43,9 +44,9 @@ const Navbar = () => {
             onChange={(e) => {
               handleChange(e);
             }}
-            onBlur={(e) => handleBlur(e)}
+            value={search}
           />
-          {search && <Search props={{ search }} />}
+          {search && <Search props={{ search, setSearch }} />}
         </div>
       </div>
       <Login />

@@ -62,7 +62,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   }, [filters]);
 
   console.log("DISPLAY", display);
-  // console.log("RESULTS", results);
+  console.log("RESULTS", results);
 
   //warning message, filters currently 'not applicable' due to user utilizing search
   return (

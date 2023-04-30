@@ -1,22 +1,23 @@
 import Image from "next/image";
 import { useContext } from "react";
 import { AppData } from "~/context/AppData";
-import type { CardData } from "~/interface";
 
 interface SearchProps {
   props: {
     search: string;
+    setSearch: (search: string) => void;
   };
 }
 
 const Search = ({ props }: SearchProps) => {
-  const { search } = props;
+  const { search, setSearch } = props;
   const { setDisplay, setResults, results } = useContext(AppData);
-  // const handleChange = () => {
-  //   // console.log("hello");
-  // setDisplay([...results]);
-  // setResults([]);
-  // };
+
+  const handleClick = () => {
+    setDisplay([...results]);
+    setResults([]);
+    setSearch("");
+  };
 
   return (
     <ul
@@ -39,7 +40,9 @@ const Search = ({ props }: SearchProps) => {
       ))}
       {results.length > 5 && (
         <li>
-          <button className="justify-center text-xs">See more results</button>
+          <a onClick={handleClick} className="justify-center text-xs">
+            See more results
+          </a>
         </li>
       )}
       {!results.length && search && (
