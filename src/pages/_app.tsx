@@ -22,7 +22,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   const [display, setDisplay] = useState<CardData[]>([...cards__mock]);
   const [results, setResults] = useState<CardData[]>([]);
   const [filters, setFilters] = useState(defaults);
-
+  const [reapply, setReapply] = useState(false);
   useEffect(() => {
     const cardsCopy = [...cards__mock];
     let displayCopy: CardData[] = [];
@@ -76,6 +76,8 @@ const MyApp: AppType<{ session: Session | null }> = ({
             setFilters,
             results,
             setResults,
+            reapply,
+            setReapply,
           }}
         >
           <Component {...pageProps} />

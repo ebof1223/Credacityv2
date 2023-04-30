@@ -1,6 +1,7 @@
 import Issuers from "./Issuers";
 import Miscellaneous from "./Miscellaneous";
 import Networks from "./Networks";
+import Reapply from "./Reapply";
 import Types from "./Types";
 import Utility from "./Utility";
 
@@ -8,8 +9,7 @@ import { useContext } from "react";
 import { AppData } from "~/context/AppData";
 
 const Sidebar = () => {
-  const { filters, setFilters } = useContext(AppData);
-
+  const { filters, setFilters, reapply } = useContext(AppData);
   const handleClick = () => {
     const issuer = { ...filters.issuer };
     Object.values(issuer).every(Boolean)
@@ -40,6 +40,8 @@ const Sidebar = () => {
       <Utility />
       <div className="divider" />
       <Miscellaneous />
+
+      {reapply && <Reapply />}
     </div>
   );
 };

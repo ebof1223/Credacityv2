@@ -11,12 +11,13 @@ interface SearchProps {
 
 const Search = ({ props }: SearchProps) => {
   const { search, setSearch } = props;
-  const { setDisplay, setResults, results } = useContext(AppData);
+  const { setDisplay, setResults, results, setReapply } = useContext(AppData);
 
   const handleClick = () => {
     setDisplay([...results]);
     setResults([]);
     setSearch("");
+    setReapply(true);
   };
 
   return (

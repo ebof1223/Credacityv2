@@ -8,5 +8,7 @@ interface AppData {
   setFilters: (value: Filters) => void;
   results: CardData[];
   setResults: (value: CardData[]) => void;
+  reapply: boolean;
+  setReapply: (value: boolean) => void;
 }
 export const AppData = createContext<AppData>({} as AppData);

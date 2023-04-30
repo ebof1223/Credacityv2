@@ -6,7 +6,6 @@ import Search from "./Search";
 import Login from "./Login";
 
 import cards__mock from "~/data/cards__mock";
-// import { getAbsStrMatch } from "~/functions";
 
 const Navbar = () => {
   const { setResults } = useContext(AppData);

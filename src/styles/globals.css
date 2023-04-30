@@ -12,4 +12,7 @@
   .divider {
     @apply mx-auto my-0 w-8/12 border-b-[1px] border-slate-500 pt-5;
   }
+  .reapply {
+    @apply alert m-auto mt-8 w-8/12 shadow-lg;
+  }
 }
