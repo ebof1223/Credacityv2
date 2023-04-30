@@ -57,10 +57,16 @@ export const getKeyValueStorage = (data: Datapoint[]) => {
 };
 
 export const isHighestOffer = (current: Offer[], historical: Offer[]) => {
-  const currentArr: number | undefined[] = [];
-  const historicalArr: (number | undefined)[] = [];
-  current.forEach((offer) => currentArr.push(offer.amount[0]?.amount));
-  historical.forEach((offer) => historicalArr.push(offer.amount[0]?.amount));
+  const currentArr: number[] = [];
+  const historicalArr: number[] = [];
+
+  current.forEach((offer) =>
+    offer.amount[0] ? currentArr.push(offer.amount[0]?.amount) : ""
+  );
+  historical.forEach((offer) =>
+    offer.amount[0] ? historicalArr.push(offer.amount[0]?.amount) : ""
+  );
+  // historical.forEach((offer) => historicalArr.push(offer.amount[0]?.amount));
   const currentHigh = Math.max(...currentArr);
   const historicalHigh = Math.max(...historicalArr);
   if (currentHigh < historicalHigh) return true;
