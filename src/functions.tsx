@@ -66,7 +66,7 @@ export const isHighestOffer = (current: Offer[], historical: Offer[]) => {
   historical.forEach((offer) =>
     offer.amount[0] ? historicalArr.push(offer.amount[0]?.amount) : ""
   );
-  // historical.forEach((offer) => historicalArr.push(offer.amount[0]?.amount));
+
   const currentHigh = Math.max(...currentArr);
   const historicalHigh = Math.max(...historicalArr);
   if (currentHigh < historicalHigh) return true;

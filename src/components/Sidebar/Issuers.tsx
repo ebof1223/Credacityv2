@@ -5,7 +5,7 @@ const Issuers = () => {
   const { filters, setFilters } = useContext(AppData);
   const handleChange = (update: string) => {
     const bool = !filters.issuer[update as keyof boolean];
-    const issuer = { ...filters.issuer, bool };
+    const issuer = { ...filters.issuer, [update]: bool };
     setFilters({ ...filters, issuer });
   };
 

@@ -51,8 +51,8 @@ const MyApp: AppType<{ session: Session | null }> = ({
         continue;
       }
       if (
-        !isHighestOffer(card.offers, card.historicalOffers) &&
-        !filters.misc.highestoffer
+        isHighestOffer(card.offers, card.historicalOffers) &&
+        filters.misc.highestoffer
       )
         continue;
       displayCopy = [...displayCopy, card];
