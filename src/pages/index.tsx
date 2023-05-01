@@ -3,10 +3,8 @@ import Head from "next/head";
 import { useContext } from "react";
 
 import Navbar from "~/components/Navbar";
-import Alert from "~/components/Navbar/Alert";
-import Login from "~/components/Navbar/Login";
-import Search from "~/components/Navbar/Search";
 import Sidebar from "~/components/Sidebar";
+
 import { AppData } from "~/context/AppData";
 
 const Home: NextPage = () => {
@@ -24,24 +22,7 @@ const Home: NextPage = () => {
           <Navbar />
           {/* <!-- Page content here --> */}
         </div>
-        <div className="drawer-side">
-          <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-          <ul className="menu w-80 bg-base-300 p-4 text-base-content">
-            <div className="mb-2 flex items-center lg:hidden">
-              <Search />
-              {reapply && <Alert orientation={"right"} />}
-            </div>
-            <div className="btn-ghost btn mb-5 hidden bg-base-300 pt-2 text-xl normal-case lg:inline ">
-              Churn.io
-            </div>
-            <li>
-              <a>Sidebar Item 1</a>
-            </li>
-            <li>
-              <a>Sidebar Item 2</a>
-            </li>
-          </ul>
-        </div>
+        <Sidebar />
       </div>
     </>
   );

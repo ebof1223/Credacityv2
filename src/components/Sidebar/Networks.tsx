@@ -11,9 +11,9 @@ const Networks = () => {
   };
 
   return (
-    <div className="mx-auto mt-4 flex flex-col items-start  lg:justify-between">
+    <div className="mx-auto mt-2 flex flex-col items-start  lg:justify-between">
       {["Visa", "Mastercard", "American Express"].map((net) => (
-        <div className="mt-3 flex items-center " key={net}>
+        <div className="mb-2 flex items-center " key={net}>
           <input
             checked={
               filters.network[
@@ -26,7 +26,7 @@ const Networks = () => {
             className="checkbox checkbox-sm "
             onChange={() => handleChange(net.toLowerCase().replace(/\s+/g, ""))}
           />
-          <label htmlFor={net} className="ml-1 mr-2">
+          <label htmlFor={net} className="ml-1 mr-2 text-sm">
             {net}
           </label>
         </div>

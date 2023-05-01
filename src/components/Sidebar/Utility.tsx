@@ -10,7 +10,7 @@ const Utility = () => {
     setFilters({ ...filters, utility });
   };
   return (
-    <div className="mx-auto flex flex-col items-start lg:flex-row lg:items-center lg:pt-5 ">
+    <div className="mx-auto flex flex-col items-start lg:flex-row lg:items-center  ">
       <div className="flex items-center pb-3 pt-3 lg:pb-1 lg:pt-1">
         <input
           type="checkbox"
@@ -20,7 +20,7 @@ const Utility = () => {
             handleChange("cashback");
           }}
         />
-        <label htmlFor="Cashback" className="ml-2">
+        <label htmlFor="Cashback" className="ml-2 text-sm">
           Cashback
         </label>
       </div>
@@ -33,7 +33,7 @@ const Utility = () => {
             handleChange("travel");
           }}
         />
-        <label htmlFor="travel" className="ml-2">
+        <label htmlFor="travel" className="ml-2 text-sm">
           Travel
         </label>
       </div>

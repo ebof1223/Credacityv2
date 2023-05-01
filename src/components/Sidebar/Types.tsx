@@ -10,18 +10,16 @@ const Types = () => {
     setFilters({ ...filters, type });
   };
   return (
-    <div className="mx-auto flex flex-col items-start lg:flex-row lg:items-center ">
-      <div className="flex items-center pb-4 lg:pb-1 lg:pt-1">
+    <ul className="mx-auto mt-2 flex flex-col items-start lg:flex-row lg:items-center ">
+      <ul className="flex items-center pb-4 lg:pb-1 lg:pt-1">
         <input
           type="checkbox"
           className="checkbox checkbox-sm "
           checked={filters.type.personal}
           onChange={() => handleChange("personal")}
         />
-        <label htmlFor="Personal" className="ml-2">
-          Personal
-        </label>
-      </div>
+        <label className="ml-2 text-sm">Personal</label>
+      </ul>
       <div className="justfy-start flex items-center ">
         <input
           type="checkbox"
@@ -29,11 +27,9 @@ const Types = () => {
           className="checkbox checkbox-sm lg:ml-5"
           onChange={() => handleChange("business")}
         />
-        <label htmlFor="Business" className="ml-2">
-          Business
-        </label>
+        <label className="ml-2 text-sm">Business</label>
       </div>
-    </div>
+    </ul>
   );
 };
 export default Types;

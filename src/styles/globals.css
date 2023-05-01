@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  .logo {
+    @apply btn-ghost btn mb-2 hidden bg-base-300 pt-2 text-xl normal-case lg:inline;
+  }
   .btn-group {
     @apply flex flex-wrap justify-around border-b border-gray-200 text-center text-sm font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400;
   }

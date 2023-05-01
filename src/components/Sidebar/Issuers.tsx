@@ -25,7 +25,7 @@ const Issuers = () => {
             <div className="flex pb-3 pt-3 " key={iss}>
               <input
                 type="checkbox"
-                className="checkbox checkbox-sm "
+                className="checkbox checkbox-sm  "
                 checked={
                   filters.issuer[
                     iss
@@ -37,7 +37,11 @@ const Issuers = () => {
                   handleChange(iss.toLowerCase().replace(/\s+/g, ""))
                 }
               />
-              <label htmlFor={iss} className="ml-2">
+              <label
+                className="ml-2
+             text-sm
+              "
+              >
                 {iss}
               </label>
             </div>

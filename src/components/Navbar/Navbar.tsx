@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className=" flex-none ">
         <ul className="menu-horizontal">
           <li className=" hidden lg:flex lg:items-center">
-            {reapply && <Alert orientation={"right"} />}
+            {reapply && <Alert orientation={"bottom"} />}
             <Search />
           </li>
           <li className="ml-5">

@@ -11,7 +11,7 @@ const Miscellaneous = () => {
   };
 
   return (
-    <div className="mx-auto mt-6 flex flex-col items-center">
+    <div className="mx-auto mt-1 flex flex-col items-start">
       <div className="flex flex-col ">
         <div className="flex">
           <input
@@ -22,7 +22,7 @@ const Miscellaneous = () => {
               handleChange("highestoffer");
             }}
           />
-          <label htmlFor="Currently highest offer" className="ml-2">
+          <label htmlFor="Currently highest offer" className="ml-2 text-sm">
             Highest Offer
           </label>
         </div>
