@@ -1,7 +1,15 @@
-const AlertLG = () => {
+const Alert = ({ orientation }: { orientation: string }) => {
+  interface AlertOrientations {
+    left: string;
+    right: string;
+  }
+  const orientationVariants = {
+    left: "tooltip tooltip-left ml-2 mr-1 lg:mr-2",
+    right: "tooltip tooltip-right ml-2 mr-1 lg:mr-2",
+  };
   return (
     <div
-      className={"tooltip tooltip-left ml-2 mr-1 lg:mr-2"}
+      className={orientationVariants[orientation as keyof AlertOrientations]}
       data-tip="Filters currently not applied"
     >
       <svg
@@ -21,4 +29,4 @@ const AlertLG = () => {
   );
 };
 
-export default AlertLG;
+export default Alert;

@@ -1,10 +1,9 @@
-import AlertXS from "../Navbar/AlertXS";
+import Alert from "../Navbar/Alert";
 import Search from "../Navbar/Search";
 import Issuers from "./Issuers";
 import Miscellaneous from "./Miscellaneous";
 import Networks from "./Networks";
 import Reapply from "./Reapply";
-import ReapplyDisabled from "./ReapplyDisabled";
 import Toggle from "./Toggle";
 import Type from "./Types";
 import Utility from "./Utility";
@@ -21,7 +20,7 @@ const Sidebar = () => {
       <div className="menu w-80 bg-base-300 p-4 text-base-content">
         <div className="mb-3 flex items-center lg:hidden">
           <Search />
-          {reapply && <AlertXS />}
+          {reapply && <Alert orientation={"right"} />}
         </div>
         <div className="logo">Churn.io</div>
         <div className="border-l-2 border-indigo-400 pl-2">
@@ -45,7 +44,7 @@ const Sidebar = () => {
           <span className="text-sm text-[#A6adbb] ">Miscellaneous</span>
           <Miscellaneous />
         </div>
-        {reapply ? <Reapply /> : <ReapplyDisabled />}
+        <Reapply />
       </div>
     </div>
   );

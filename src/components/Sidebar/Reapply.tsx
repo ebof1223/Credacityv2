@@ -2,15 +2,18 @@ import { useContext } from "react";
 import { AppData } from "~/context/AppData";
 
 const Reapply = () => {
-  const { filters, setFilters, setReapply, reapply } = useContext(AppData);
-
+  const { filters, setFilters, reapply, setReapply } = useContext(AppData);
   const handleClick = () => {
     setReapply(false);
     setFilters({ ...filters });
   };
 
   return (
-    <button className="btn-sidebar" onClick={handleClick}>
+    <button
+      className="btn-sidebar"
+      onClick={handleClick}
+      {...(!reapply && { disabled: true })}
+    >
       Reapply
     </button>
   );

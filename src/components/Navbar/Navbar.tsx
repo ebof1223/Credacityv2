@@ -1,8 +1,8 @@
 import { useContext } from "react";
+import { AppData } from "~/context/AppData";
 import Login from "./Login";
 import Search from "./Search";
-import { AppData } from "~/context/AppData";
-import AlertLG from "./AlertLG";
+import Alert from "./Alert";
 
 const Navbar = () => {
   const { reapply } = useContext(AppData);
@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className=" flex-none ">
         <ul className="menu-horizontal">
           <li className="hidden lg:flex lg:items-center">
-            {reapply && <AlertLG />}
+            {reapply && <Alert orientation={"left"} />}
             <Search />
           </li>
           <li className="ml-5">
