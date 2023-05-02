@@ -1,4 +1,4 @@
-import Alert from "../Navbar/Alert";
+import AlertXS from "../Navbar/AlertXS";
 import Search from "../Navbar/Search";
 import Issuers from "./Issuers";
 import Miscellaneous from "./Miscellaneous";
@@ -12,7 +12,7 @@ import { AppData } from "~/context/AppData";
 
 const Sidebar = () => {
   const { filters, setFilters, reapply } = useContext(AppData);
-  const handleCdivck = () => {
+  const handleClick = () => {
     const issuer = { ...filters.issuer };
     Object.values(issuer).every(Boolean)
       ? Object.keys(issuer).forEach(
@@ -30,7 +30,7 @@ const Sidebar = () => {
       <div className="menu w-80 bg-base-300 p-4 text-base-content">
         <div className="mb-3 flex items-center lg:hidden">
           <Search />
-          {reapply && <Alert orientation={"right"} />}
+          {reapply && <AlertXS />}
         </div>
         <div className="logo">Churn.io</div>
         <div className="border-l-2 border-indigo-400 pl-2">
@@ -41,7 +41,7 @@ const Sidebar = () => {
           <span className="text-sm text-[#A6adbb] ">Issuer</span>
           <Issuers />
         </div>
-        <button className="btn-primary btn-sm btn mt-4 " onClick={handleCdivck}>
+        <button className="btn-primary btn-sm btn mt-4 " onClick={handleClick}>
           Toggle All
         </button>
         <div className="mt-4 border-l-2 border-indigo-400 pl-2">
