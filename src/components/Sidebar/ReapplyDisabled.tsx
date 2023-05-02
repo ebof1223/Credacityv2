@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AppData } from "~/context/AppData";
 
-const Reapply = () => {
+const ReapplyDisabled = () => {
   const { filters, setFilters, setReapply, reapply } = useContext(AppData);
 
   const handleClick = () => {
@@ -10,10 +10,10 @@ const Reapply = () => {
   };
 
   return (
-    <button className="btn-sidebar" onClick={handleClick}>
+    <button className="btn-sidebar" disabled onClick={handleClick}>
       Reapply
     </button>
   );
 };
 
-export default Reapply;
+export default ReapplyDisabled;

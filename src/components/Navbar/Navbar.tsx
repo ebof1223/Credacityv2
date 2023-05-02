@@ -8,7 +8,7 @@ const Navbar = () => {
   const { reapply } = useContext(AppData);
   return (
     <div className="navbar flex w-full justify-between bg-base-300">
-      <div className="">
+      <div>
         <div className="flex-none lg:hidden">
           <label htmlFor="my-drawer-3" className="btn-ghost btn-square btn">
             <svg

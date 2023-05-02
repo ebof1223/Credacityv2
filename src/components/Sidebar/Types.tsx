@@ -10,7 +10,7 @@ const Types = () => {
     setFilters({ ...filters, type });
   };
   return (
-    <ul className="mx-auto mt-2 flex flex-col items-start lg:flex-row lg:items-center ">
+    <ul className="mx-auto flex flex-col items-start lg:flex-row lg:items-center ">
       <ul className="flex items-center pb-4 lg:pb-1 lg:pt-1">
         <input
           type="checkbox"
