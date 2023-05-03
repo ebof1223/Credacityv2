@@ -8,7 +8,7 @@ import OfficialPage from "./Badges/OfficialPage";
 
 const Card = ({ props }: { props: CardData }) => {
   return (
-    <div className="mx-5 my-5">
+    <div className="mx-3 my-3">
       <div className="card-compact card h-52 w-48 bg-base-100 shadow-xl">
         <figure>
           <Image

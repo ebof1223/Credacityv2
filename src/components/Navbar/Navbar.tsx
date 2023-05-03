@@ -3,6 +3,7 @@ import { AppData } from "~/context/AppData";
 import Login from "./Login";
 import Search from "./Search";
 import Alert from "./Alert";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const { reapply } = useContext(AppData);
@@ -26,8 +27,9 @@ const Navbar = () => {
             </svg>
           </label>
         </div>
-        <div className="btn-ghost btn mx-2 px-2 text-xl normal-case lg:invisible lg:flex-1 ">
-          Churn.io
+        <div className="btn-ghost btn flex items-center justify-start lg:invisible lg:flex-1">
+          <div className=" px-1 text-xl normal-case ">Churn.io</div>
+          <Logo size="sm" />
         </div>
       </div>
       <div className=" flex-none ">

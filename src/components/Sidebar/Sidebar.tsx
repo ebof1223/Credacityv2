@@ -1,4 +1,5 @@
 import Alert from "../Navbar/Alert";
+import Logo from "../Navbar/Logo";
 import Search from "../Navbar/Search";
 import Issuers from "./Issuers";
 import Miscellaneous from "./Miscellaneous";
@@ -21,7 +22,10 @@ const Sidebar = () => {
           <Search />
           {reapply && <Alert orientation={"right"} />}
         </div>
-        <div className="logo">Churn.io</div>
+        <div className="logo mx-auto hidden items-center justify-start lg:flex">
+          <span className=" px-1 text-xl normal-case ">Churn.io</span>
+          <Logo size="lg" />
+        </div>
         {[
           <Type key={"Type"} />,
           <Issuers key={"Issuers"} />,
