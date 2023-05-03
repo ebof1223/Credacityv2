@@ -15,7 +15,10 @@ const Toggle = () => {
     setFilters({ ...filters, issuer });
   };
   return (
-    <button className="btn-primary btn-wide btn mt-4" onClick={handleClick}>
+    <button
+      className="btn-primary btn-wide btn mx-auto mt-4"
+      onClick={handleClick}
+    >
       Toggle All
     </button>
   );
