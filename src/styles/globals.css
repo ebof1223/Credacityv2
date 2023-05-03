@@ -15,4 +15,7 @@
   .btn-sidebar {
     @apply btn-primary btn-sm btn mt-4;
   }
+  .card-title {
+    @apply text-sm;
+  }
 }

@@ -3,7 +3,7 @@ import { AppData } from "~/context/AppData";
 import Toggle from "./Toggle";
 
 const Issuers = () => {
-  const { filters, setFilters } = useContext(AppData);
+  const { filters, setFilters, reapply } = useContext(AppData);
   const handleChange = (update: string) => {
     const bool = !filters.issuer[update as keyof boolean];
     const issuer = { ...filters.issuer, [update]: bool };
@@ -37,6 +37,7 @@ const Issuers = () => {
                 onChange={() =>
                   handleChange(iss.toLowerCase().replace(/\s+/g, ""))
                 }
+                {...(reapply && { disabled: true })}
               />
               <label
                 className="ml-2

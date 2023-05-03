@@ -26,7 +26,7 @@ const Results = ({ props }: SearchProps) => {
       className="dropdown-content menu rounded-box w-80 bg-base-100 p-4 shadow"
     >
       {results.slice(0, 5).map((item) => (
-        <li key={item.name} tabIndex={0}>
+        <li key={`search-result,${item.name}`} tabIndex={0}>
           <div>
             <Image
               loader={() => "https://www.offeroptimist.com/" + item.imageUrl}
@@ -34,6 +34,7 @@ const Results = ({ props }: SearchProps) => {
               width={50}
               height={50}
               alt={item.name}
+              unoptimized
             />
             <a>{item.name}</a>
           </div>

@@ -51,18 +51,14 @@ const MyApp: AppType<{ session: Session | null }> = ({
         continue;
       }
       if (
-        isHighestOffer(card.offers, card.historicalOffers) &&
+        !isHighestOffer(card.offers, card.historicalOffers) &&
         filters.misc.highestoffer
       )
         continue;
       displayCopy = [...displayCopy, card];
     }
-
     setDisplay(displayCopy);
   }, [filters]);
-
-  // console.log("DISPLAY", display);
-  // console.log("RESULTS", results);
 
   return (
     <ClerkProvider {...pageProps}>

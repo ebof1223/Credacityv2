@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppData } from "~/context/AppData";
 
 const Toggle = () => {
-  const { filters, setFilters } = useContext(AppData);
+  const { filters, setFilters, reapply } = useContext(AppData);
   const handleClick = () => {
     const issuer = { ...filters.issuer };
     Object.values(issuer).every(Boolean)
@@ -18,6 +18,7 @@ const Toggle = () => {
     <button
       className="btn-primary btn-wide btn mx-auto mt-4"
       onClick={handleClick}
+      {...(reapply && { disabled: true })}
     >
       Toggle All
     </button>

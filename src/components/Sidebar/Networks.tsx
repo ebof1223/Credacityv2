@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppData } from "~/context/AppData";
 
 const Networks = () => {
-  const { filters, setFilters } = useContext(AppData);
+  const { filters, setFilters, reapply } = useContext(AppData);
 
   const handleChange = (update: string) => {
     const bool = !filters.network[update as keyof boolean];
@@ -25,6 +25,7 @@ const Networks = () => {
             type="checkbox"
             className="checkbox checkbox-sm "
             onChange={() => handleChange(net.toLowerCase().replace(/\s+/g, ""))}
+            {...(reapply && { disabled: true })}
           />
           <label htmlFor={net} className="ml-1 mr-2 text-sm">
             {net}

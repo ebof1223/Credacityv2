@@ -1,6 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import { useContext } from "react";
+import Display from "~/components/Display";
 
 import Navbar from "~/components/Navbar";
 import Sidebar from "~/components/Sidebar";
@@ -8,7 +9,6 @@ import Sidebar from "~/components/Sidebar";
 import { AppData } from "~/context/AppData";
 
 const Home: NextPage = () => {
-  const { reapply } = useContext(AppData);
   return (
     <>
       <Head>
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           <Navbar />
-          {/* <!-- Page content here --> */}
+          <Display />
         </div>
         <Sidebar />
       </div>

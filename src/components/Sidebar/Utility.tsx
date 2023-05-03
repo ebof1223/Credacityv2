@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppData } from "~/context/AppData";
 
 const Utility = () => {
-  const { filters, setFilters } = useContext(AppData);
+  const { filters, setFilters, reapply } = useContext(AppData);
 
   const handleChange = (update: string) => {
     const bool = !filters.utility[update as keyof boolean];
@@ -19,6 +19,7 @@ const Utility = () => {
           onChange={() => {
             handleChange("cashback");
           }}
+          {...(reapply && { disabled: true })}
         />
         <label htmlFor="Cashback" className="ml-2 text-sm">
           Cashback
@@ -32,6 +33,7 @@ const Utility = () => {
           onChange={() => {
             handleChange("travel");
           }}
+          {...(reapply && { disabled: true })}
         />
         <label htmlFor="travel" className="ml-2 text-sm">
           Travel

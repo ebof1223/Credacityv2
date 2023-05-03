@@ -4263,7 +4263,7 @@ const cards__mock = [
     ],
   },
   {
-    name: "Business Platinum",
+    name: "Wells Fargo Business Platinum",
     issuer: "Wells Fargo",
     network: "Visa",
     currency: "USD",

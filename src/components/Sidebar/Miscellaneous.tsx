@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppData } from "~/context/AppData";
 
 const Miscellaneous = () => {
-  const { filters, setFilters } = useContext(AppData);
+  const { filters, setFilters, reapply } = useContext(AppData);
 
   const handleChange = (update: string) => {
     const bool = !filters.misc[update as keyof boolean];
@@ -21,6 +21,7 @@ const Miscellaneous = () => {
             onChange={() => {
               handleChange("highestoffer");
             }}
+            {...(reapply && { disabled: true })}
           />
           <label htmlFor="Currently highest offer" className="ml-2 text-sm">
             Highest Offer
