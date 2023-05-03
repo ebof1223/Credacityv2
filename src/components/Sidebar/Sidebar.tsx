@@ -23,7 +23,22 @@ const Sidebar = () => {
           {reapply && <Alert orientation={"right"} />}
         </div>
         <div className="logo">Churn.io</div>
-        <div className="border-l-2 border-indigo-400 pl-2">
+        {[
+          <Type key={"Type"} />,
+          <Issuers key={"Issuers"} />,
+          <Networks key={"Network"} />,
+          <Utility key={"Utility"} />,
+          <Miscellaneous key={"Miscellaneous"} />,
+        ].map((component) => (
+          <div
+            className="mt-5 border-l-2 border-indigo-400 pl-2"
+            key={component.key}
+          >
+            <span className="text-sm text-[#A6adbb]">{component.key}</span>
+            {component}
+          </div>
+        ))}
+        {/* <div className="border-l-2 border-indigo-400 pl-2">
           <span className="text-sm text-[#A6adbb]">Type</span>
           <Type />
         </div>
@@ -43,7 +58,7 @@ const Sidebar = () => {
         <div className="mt-3 border-l-2 border-indigo-400 pl-2">
           <span className="text-sm text-[#A6adbb] ">Miscellaneous</span>
           <Miscellaneous />
-        </div>
+        </div> */}
         <Reapply />
       </div>
     </div>

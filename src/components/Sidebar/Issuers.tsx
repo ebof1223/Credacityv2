@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AppData } from "~/context/AppData";
+import Toggle from "./Toggle";
 
 const Issuers = () => {
   const { filters, setFilters } = useContext(AppData);
@@ -48,6 +49,7 @@ const Issuers = () => {
           ))}
         </div>
       ))}
+      <Toggle />
     </div>
   );
 };

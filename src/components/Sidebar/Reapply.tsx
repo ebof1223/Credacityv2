@@ -10,7 +10,7 @@ const Reapply = () => {
 
   return (
     <button
-      className="btn-sidebar"
+      className="btn-sidebar mt-5"
       onClick={handleClick}
       {...(!reapply && { disabled: true })}
     >

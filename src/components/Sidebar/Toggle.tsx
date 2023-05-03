@@ -15,7 +15,7 @@ const Toggle = () => {
     setFilters({ ...filters, issuer });
   };
   return (
-    <button className="btn-primary btn-sm btn mt-4 " onClick={handleClick}>
+    <button className="btn-primary btn-wide btn mt-4" onClick={handleClick}>
       Toggle All
     </button>
   );
