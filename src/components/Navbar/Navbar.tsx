@@ -4,6 +4,7 @@ import Login from "./Login";
 import Search from "./Search";
 import Alert from "./Alert";
 import Logo from "./Logo";
+import Contribute from "./Contribute";
 
 const Navbar = () => {
   const { reapply } = useContext(AppData);
@@ -34,9 +35,12 @@ const Navbar = () => {
       </div>
       <div className=" flex-none ">
         <ul className="menu-horizontal">
-          <li className="hidden lg:flex lg:items-center">
+          <li className="mr-5 hidden lg:flex lg:items-center">
             {reapply && <Alert orientation={"left"} />}
             <Search />
+          </li>
+          <li>
+            <Contribute />
           </li>
           <li className="ml-5">
             <Login />
