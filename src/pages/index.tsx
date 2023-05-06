@@ -11,7 +11,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Churn.io</title>
         <meta name="Churn.io" content="Credit card datapoints" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <div className="drawer-mobile drawer">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
