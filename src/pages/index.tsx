@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import DatapointsModal from "~/components/DatapointsModal";
 import Display from "~/components/Display";
 
 import Navbar from "~/components/Navbar";
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
         </div>
         <Sidebar />
       </div>
+      <DatapointsModal />
     </>
   );
 };

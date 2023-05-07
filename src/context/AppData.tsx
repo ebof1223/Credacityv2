@@ -10,5 +10,7 @@ interface AppData {
   setResults: (value: CardData[]) => void;
   reapply: boolean;
   setReapply: (value: boolean) => void;
+  current: CardData | null;
+  setCurrent: (value: CardData) => void;
 }
 export const AppData = createContext<AppData>({} as AppData);
