@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useContext } from "react";
 import { AppData } from "~/context/AppData";
+import { type CardData } from "~/interface";
 
 interface SearchProps {
   props: {
@@ -11,13 +12,18 @@ interface SearchProps {
 
 const Results = ({ props }: SearchProps) => {
   const { search, setSearch } = props;
-  const { setDisplay, setResults, results, setReapply } = useContext(AppData);
+  const { setDisplay, setResults, results, setReapply, setCurrent } =
+    useContext(AppData);
 
-  const handleClick = () => {
+  const handleResults = () => {
     setDisplay([...results]);
     setResults([]);
     setSearch("");
     setReapply(true);
+  };
+
+  const handleResult = (card: CardData) => {
+    setCurrent(card);
   };
 
   return (
@@ -26,8 +32,12 @@ const Results = ({ props }: SearchProps) => {
       className="dropdown-content menu rounded-box w-80 bg-base-100 p-4 shadow"
     >
       {results.slice(0, 5).map((item) => (
-        <li key={`search-result,${item.name}`} tabIndex={0}>
-          <div>
+        <li
+          key={`search-result,${item.name}`}
+          tabIndex={0}
+          onClick={() => handleResult(item)}
+        >
+          <label className="flex" htmlFor="my-modal-4">
             <Image
               loader={() => "https://www.offeroptimist.com/" + item.imageUrl}
               src={"https://www.offeroptimist.com/" + item.imageUrl}
@@ -37,12 +47,12 @@ const Results = ({ props }: SearchProps) => {
               unoptimized
             />
             <a>{item.name}</a>
-          </div>
+          </label>
         </li>
       ))}
       {results.length > 5 && (
         <li tabIndex={0}>
-          <a onClick={handleClick} className="justify-center text-xs">
+          <a onClick={handleResults} className="w-full justify-center text-xs">
             See more results
           </a>
         </li>

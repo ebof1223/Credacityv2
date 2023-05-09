@@ -16,7 +16,7 @@ const Sidebar = () => {
 
   return (
     <div className="drawer-side">
-      <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
+      <label htmlFor="my-drawer-3" className="drawer-overlay" />
       <div className="menu w-80 bg-base-300 p-4 text-base-content">
         <div className="flex items-center lg:hidden">
           <Search />

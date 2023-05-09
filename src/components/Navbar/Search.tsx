@@ -1,4 +1,4 @@
-import { type ChangeEvent, useContext, useState } from "react";
+import { type ChangeEvent, useContext, useState, useEffect } from "react";
 
 import { AppData } from "~/context/AppData";
 
@@ -7,8 +7,11 @@ import Results from "./Results";
 import cards__mock from "~/data/cards__mock";
 
 const Search = () => {
-  const { setResults } = useContext(AppData);
+  const { setResults, current } = useContext(AppData);
   const [search, setSearch] = useState("");
+  useEffect(() => {
+    setSearch("");
+  }, [current]);
 
   const getAbsStrMatch = (card1: string, value: string): boolean => {
     return card1
@@ -35,11 +38,12 @@ const Search = () => {
           <input
             type="text"
             placeholder="Search"
-            className="input-bordered input w-52"
+            className="input-bordered input"
             onChange={(e) => {
               handleChange(e);
             }}
             value={search}
+            // onBlurCapture={() => setSearch("")}
           />
           {search && <Results props={{ search, setSearch }} />}
         </div>
