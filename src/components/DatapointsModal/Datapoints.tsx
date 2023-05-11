@@ -27,9 +27,7 @@ const Datapoints = () => {
         {current &&
           current.name &&
           data &&
-          data[current.name] != null &&
-          data[current.name] !== undefined &&
-          data[current.name].map((card, i) => (
+          data[current.name]?.map((card, i) => (
             <tr key={`data points ${i}`}>
               <td>{card.Username}</td>
               <td>{card.creditScore}</td>

@@ -50,7 +50,6 @@ const Modal = () => {
                 width={65}
                 height={65}
                 unoptimized
-                priority
               />
             </div>
           </div>
