@@ -11,14 +11,11 @@ interface SearchProps {
 }
 
 const Results = ({ props }: SearchProps) => {
-  const { search, setSearch } = props;
-  const { setDisplay, setResults, results, setReapply, setCurrent } =
-    useContext(AppData);
+  const { search } = props;
+  const { setDisplay, results, setReapply, setCurrent } = useContext(AppData);
 
   const handleResults = () => {
     setDisplay([...results]);
-    setResults([]);
-    setSearch("");
     setReapply(true);
   };
 
@@ -37,7 +34,7 @@ const Results = ({ props }: SearchProps) => {
           tabIndex={0}
           onClick={() => handleResult(item)}
         >
-          <label className="flex" htmlFor="my-modal-4">
+          <label className="flex w-full" htmlFor="my-modal-4">
             <Image
               loader={() => "https://www.offeroptimist.com/" + item.imageUrl}
               src={"https://www.offeroptimist.com/" + item.imageUrl}
@@ -46,15 +43,19 @@ const Results = ({ props }: SearchProps) => {
               alt={item.name}
               unoptimized
             />
-            <a>{item.name}</a>
+            {item.name}
           </label>
         </li>
       ))}
       {results.length > 5 && (
         <li tabIndex={0}>
-          <a onClick={handleResults} className="w-full justify-center text-xs">
+          <label
+            className="w-full justify-center text-xs"
+            htmlFor="my-drawer-3"
+            onClick={handleResults}
+          >
             See more results
-          </a>
+          </label>
         </li>
       )}
       {!results.length && search && (

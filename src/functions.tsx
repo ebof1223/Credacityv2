@@ -1,8 +1,4 @@
-import type { Datapoint } from "./interface";
-
-interface IncomeStorage {
-  [key: string]: Datapoint[];
-}
+import type { Datapoint, Storage } from "./interface";
 
 interface Offer {
   amount: { amount: number }[];
@@ -39,17 +35,18 @@ export const aaoaToInt = (ageAsString: string): number => {
 };
 
 export const getKeyValueStorage = (data: Datapoint[]) => {
-  const storage: IncomeStorage = {};
+  const storage: Storage = {};
   for (const dp of data) {
-    const { income, ...copy } = dp;
+    const { cardName } = dp;
+    const { ...copy } = dp;
 
     //if dp.income is present in storage
-    if (income) {
+    if (cardName in storage) {
       //push to array
-      storage[income]?.push(copy);
+      storage[cardName]?.push(copy);
       //otherwise create storage[dp.icome] = [dp]
-    } else if (income !== undefined) {
-      storage[income] = [copy];
+    } else if (cardName !== undefined) {
+      storage[cardName] = [copy];
     }
   }
 

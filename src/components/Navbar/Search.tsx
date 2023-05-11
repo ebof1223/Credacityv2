@@ -7,11 +7,11 @@ import Results from "./Results";
 import cards__mock from "~/data/cards__mock";
 
 const Search = () => {
-  const { setResults, current } = useContext(AppData);
+  const { setResults, current, display } = useContext(AppData);
   const [search, setSearch] = useState("");
   useEffect(() => {
     setSearch("");
-  }, [current]);
+  }, [current, display]);
 
   const getAbsStrMatch = (card1: string, value: string): boolean => {
     return card1
@@ -43,7 +43,7 @@ const Search = () => {
               handleChange(e);
             }}
             value={search}
-            // onBlurCapture={() => setSearch("")}
+            onFocus={() => setSearch("")}
           />
           {search && <Results props={{ search, setSearch }} />}
         </div>

@@ -30,23 +30,23 @@ export interface CardData {
 }
 
 export interface Datapoint {
-  timestamp: string;
-  username: string;
+  Timestamp: string;
+  Username: string | number;
   applicationDate: string;
   bankName: string;
   cardName: string;
-  instantResult: "Approved" | "Denied" | "Pending";
-  calledRecon: boolean;
-  finalResult: "Approved" | "Denied";
-  creditScore: number;
+  instantResult: string | undefined;
+  calledRecon: boolean | string;
+  finalResult: string;
+  creditScore: number | string;
   bureausPulled: string;
   state: string;
   aaoa: string;
-  income?: string;
-  x3: number;
-  x6: number;
-  x12: number;
-  notes: string;
+  income: string;
+  x3: number | string;
+  x6: number | string;
+  x12: number | string;
+  notes?: string;
 }
 
 export interface CurrentCardDisplay {
@@ -85,4 +85,6 @@ export interface Filters {
     highestoffer: boolean;
   };
 }
-//test
+export interface Storage {
+  [key: string]: Datapoint[];
+}

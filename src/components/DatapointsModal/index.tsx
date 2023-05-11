@@ -1,2 +1,2 @@
-import DatapointsModal from "./DatapointsModal";
-export default DatapointsModal;
+import Modal from "./Modal";
+export default Modal;

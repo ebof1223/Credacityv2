@@ -1,5 +1,4 @@
 const dp__mock = [
-
   {
     Timestamp: "6/16/2022 15:33:29",
     Username: "",
@@ -40736,4 +40735,5 @@ const dp__mock = [
       "Receieved Pre Approved Offer - Prior Relationship Established via Checking/Savings Account",
   },
 ];
+
 export default dp__mock;
