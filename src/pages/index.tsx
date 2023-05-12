@@ -9,9 +9,9 @@ import Sidebar from '~/components/Sidebar';
 const Home: NextPage = () => {
   return (
     <>
-      <Head lang="eng">
+      <Head>
         <title>Churn.io</title>
-        <meta name="Churn.io" content="Credit card datapoints" lang="eng" />
+        <meta name="Churn.io" content="Credit card datapoints" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <div className="drawer-mobile drawer">
