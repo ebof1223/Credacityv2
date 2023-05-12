@@ -1,17 +1,17 @@
-import { type NextPage } from "next";
-import Head from "next/head";
-import DatapointsModal from "~/components/DatapointsModal";
-import Display from "~/components/Display";
+import { type NextPage } from 'next';
+import Head from 'next/head';
+import DatapointsModal from '~/components/DatapointsModal';
+import Display from '~/components/Display';
 
-import Navbar from "~/components/Navbar";
-import Sidebar from "~/components/Sidebar";
+import Navbar from '~/components/Navbar';
+import Sidebar from '~/components/Sidebar';
 
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
+      <Head lang="eng">
         <title>Churn.io</title>
-        <meta name="Churn.io" content="Credit card datapoints" />
+        <meta name="Churn.io" content="Credit card datapoints" lang="eng" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <div className="drawer-mobile drawer">
