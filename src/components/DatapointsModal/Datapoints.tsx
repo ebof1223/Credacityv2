@@ -11,7 +11,7 @@ const Datapoints = () => {
   const data = getKeyValueStorage(dp__mock);
   //dyanmically return modal based on whethere or not datapoints exist
   return (
-    <table className="table-compact table w-full">
+    <table className="table-compact mb-20 table w-full">
       <thead>
         <tr>
           <th>Username</th>
