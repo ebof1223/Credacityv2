@@ -431,7 +431,7 @@ const cards__mock = [
     ],
   },
   {
-    name: "Delta SkyMiles Platinum",
+    name: "Platinum Delta SkyMiles",
     issuer: "American Express",
     network: "American Express",
     currency: "Delta Miles",
@@ -457,7 +457,7 @@ const cards__mock = [
     ],
   },
   {
-    name: "Delta SkyMiles Platinum Business",
+    name: "Platinum Delta SkyMiles Business",
     issuer: "American Express",
     network: "American Express",
     currency: "Delta Miles",
@@ -2738,7 +2738,7 @@ const cards__mock = [
     ],
   },
   {
-    name: "Southwest Rapid Rewards Plus",
+    name: "Southwest Plus",
     issuer: "Chase",
     network: "Visa",
     currency: "Southwest Miles",
@@ -2778,7 +2778,7 @@ const cards__mock = [
     ],
   },
   {
-    name: "Southwest Rapid Rewards Premier",
+    name: "Southwest Premier",
     issuer: "Chase",
     network: "Visa",
     currency: "Southwest Miles",
@@ -2818,7 +2818,7 @@ const cards__mock = [
     ],
   },
   {
-    name: "Southwest Rapid Rewards Premier Business",
+    name: "Southwest Premier Business",
     issuer: "Chase",
     network: "Visa",
     currency: "Southwest Miles",
@@ -2993,7 +2993,7 @@ const cards__mock = [
     ],
   },
   {
-    name: "United Explorer",
+    name: "United MileagePlus Explorer",
     issuer: "Chase",
     network: "Visa",
     currency: "United Miles",

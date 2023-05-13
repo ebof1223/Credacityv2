@@ -14,14 +14,14 @@ const Home: NextPage = () => {
         <meta name="Churn.io" content="Credit card datapoints" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
-      <div className="drawer-mobile drawer">
+      <main className="drawer-mobile drawer">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           <Navbar />
           <Display />
         </div>
         <Sidebar />
-      </div>
+      </main>
       <DatapointsModal />
     </>
   );

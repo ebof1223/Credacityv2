@@ -76,10 +76,3 @@ export const getAbsStrMatch = (card1: string, value: string): boolean => {
     .replace(/\s+/g, "")
     .includes(value.toLowerCase().replace(/\s+/g, ""));
 };
-
-// export const toggleFilter = (update: string, filters) => {
-//   const bool = !filter[update as keyof boolean];
-//change filters
-//
-// setFilters({...filters, {...filters[update as keyof boolean], [update]:boolean}});
-// };

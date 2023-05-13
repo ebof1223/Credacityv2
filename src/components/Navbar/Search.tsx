@@ -33,7 +33,7 @@ const Search = () => {
   };
   return (
     <>
-      <div className="flex items-center justify-start">
+      <nav className="flex items-center justify-start">
         <div className="dropdown">
           <input
             type="text"
@@ -47,7 +47,7 @@ const Search = () => {
           />
           {search && <Results props={{ search, setSearch }} />}
         </div>
-      </div>
+      </nav>
     </>
   );
 };

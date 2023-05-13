@@ -6,8 +6,8 @@ import dp__mock from "~/data/dp__mock";
 //any?
 const Datapoints = () => {
   const { current } = useContext(AppData);
-
   const data = getKeyValueStorage(dp__mock);
+  console.log(data);
   //dyanmically return modal based on whethere or not datapoints exist
   return (
     <table className="table-compact table w-full">
@@ -25,8 +25,6 @@ const Datapoints = () => {
       </thead>
       <tbody>
         {current &&
-          current.name &&
-          data &&
           data[current.name]?.map((card, i) => (
             <tr key={`data points ${i}`}>
               <td>{card.Username}</td>
