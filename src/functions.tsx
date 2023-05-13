@@ -40,8 +40,8 @@ export const getKeyValueStorage = (data: Datapoint[]) => {
     const { cardName } = dp;
     const { ...copy } = dp;
 
-    //if dp.income is present in storage
     if (cardName in storage) {
+      //if dp.income is present in storage
       //push to array
       storage[cardName]?.push(copy);
       //otherwise create storage[dp.icome] = [dp]
@@ -76,10 +76,3 @@ export const getAbsStrMatch = (card1: string, value: string): boolean => {
     .replace(/\s+/g, "")
     .includes(value.toLowerCase().replace(/\s+/g, ""));
 };
-
-// export const toggleFilter = (update: string, filters) => {
-//   const bool = !filter[update as keyof boolean];
-//change filters
-//
-// setFilters({...filters, {...filters[update as keyof boolean], [update]:boolean}});
-// };
