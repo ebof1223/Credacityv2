@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppData } from "~/context/AppData";
 import Datapoints from "./Datapoints";
 
 const Modal = () => {
   const { current } = useContext(AppData);
+  const [isApproved, setIsApproved] = useState(false);
   return (
     <>
       <input type="checkbox" id="my-modal-4" className="modal-toggle" />
@@ -30,10 +31,18 @@ const Modal = () => {
           </div>
           <div className="mb-5  flex content-center items-center justify-between align-middle">
             <div className="btn-group flex justify-start border-none">
-              <button className="btn-active btn-xs btn md:btn-sm">
+              <button
+                className="btn-active btn-xs btn md:btn-sm"
+                onClick={() => setIsApproved(true)}
+              >
                 Approved
               </button>
-              <button className="btn-xs btn md:btn-sm">Denied</button>
+              <button
+                className="btn-xs btn md:btn-sm"
+                onClick={() => setIsApproved(false)}
+              >
+                Denied
+              </button>
             </div>
             <div className="flex items-center">
               <label className="text-xs font-bold md:text-sm md:font-normal">

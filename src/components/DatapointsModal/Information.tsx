@@ -1,12 +1,11 @@
-import type { Datapoint } from "~/interface";
-
-const Notes = ({ props }: { props: Datapoint }) => {
-  const { notes } = props;
+const Information = ({ props }: { props: string }) => {
   return (
     <td className="dropdown dropdown-left dropdown-hover w-full">
       <label
         tabIndex={0}
-        className="btn-ghost btn-xs btn-circle btn ml-5 text-info"
+        className="
+        btn-ghost
+        btn-xs btn-circle btn text-info"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,10 +27,10 @@ const Notes = ({ props }: { props: Datapoint }) => {
       >
         <textarea
           className="textarea-bordered textarea-primary textarea textarea-lg w-64"
-          placeholder={notes}
+          placeholder={props}
         />
       </div>
     </td>
   );
 };
-export default Notes;
+export default Information;
