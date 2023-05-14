@@ -11,11 +11,11 @@ import { AppData } from "~/context/AppData";
 const Card = ({ props }: { props: CardData }) => {
   const { setCurrent, breadcrumbs, setBreadcrumbs } = useContext(AppData);
   const handleClick = () => {
-    if (breadcrumbs.some((card) => card.name.includes(props.name))) return;
+    setCurrent(props);
+    if (breadcrumbs.some((card) => card.name == props.name)) return;
     breadcrumbs.length > 2
       ? setBreadcrumbs([...breadcrumbs.slice(1), props])
       : setBreadcrumbs([...breadcrumbs, props]);
-    setCurrent(props);
   };
   return (
     <div className="mx-3 my-5" onClick={handleClick}>

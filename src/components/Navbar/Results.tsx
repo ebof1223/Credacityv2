@@ -27,11 +27,11 @@ const Results = ({ props }: SearchProps) => {
   };
 
   const handleResult = (props: CardData) => {
-    if (breadcrumbs.some((card) => card.name.includes(props.name))) return;
+    setCurrent(props);
+    if (breadcrumbs.some((card) => card.name == props.name)) return;
     breadcrumbs.length > 2
       ? setBreadcrumbs([...breadcrumbs.slice(1), props])
       : setBreadcrumbs([...breadcrumbs, props]);
-    setCurrent(props);
   };
 
   return (

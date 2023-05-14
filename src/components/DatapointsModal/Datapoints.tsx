@@ -56,21 +56,24 @@ const Datapoints = ({ props }: ModalInfo) => {
               </tr>
             ))}
       </tbody>
-      {current && datapoints[current.name] && (
-        <tfoot>
-          <tr>
-            <th />
-            <th>Username</th>
-            <th>Fico</th>
-            <th>Income</th>
-            <th>x/3</th>
-            <th>x/6</th>
-            <th>x/12</th>
-            <th>App Date</th>
-            <th />
-          </tr>
-        </tfoot>
-      )}
+      {current &&
+        datapoints[current.name]?.some((card) =>
+          card.finalResult.includes(status)
+        ) && (
+          <tfoot>
+            <tr>
+              <th />
+              <th>Username</th>
+              <th>Fico</th>
+              <th>Income</th>
+              <th>x/3</th>
+              <th>x/6</th>
+              <th>x/12</th>
+              <th>App Date</th>
+              <th />
+            </tr>
+          </tfoot>
+        )}
     </table>
   );
 };
