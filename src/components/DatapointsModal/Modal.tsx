@@ -8,7 +8,12 @@ const Modal = () => {
   const [status, setStatus] = useState("Approved");
   return (
     <>
-      <input type="checkbox" id="my-modal-4" className="modal-toggle" />
+      <input
+        type="checkbox"
+        id="my-modal-4"
+        className="modal-toggle"
+        onClick={() => setStatus("Approved")}
+      />
       <label
         htmlFor="my-modal-4"
         className="modal flex cursor-pointer flex-col justify-start"
@@ -25,8 +30,6 @@ const Modal = () => {
               <li>{current && current.name}</li>
             </ul>
           </div>
-          {/* NUMBER of users NEEDS TO BE DYNAMIC */}
-
           <div className="my-5 flex content-center items-center justify-between align-middle">
             <div className="btn-group flex justify-start border-none">
               <a
@@ -55,7 +58,7 @@ const Modal = () => {
                 {current && current.name}
               </label>
               <Image
-                className="mask mask-circle hidden md:flex"
+                className="mask mask-circle hidden w-20 md:flex"
                 src={
                   current
                     ? "https://www.offeroptimist.com/" + current.imageUrl
@@ -69,7 +72,7 @@ const Modal = () => {
             </div>
           </div>
           <div className="divider" />
-          <div className="overflow-x-auto">{<Datapoints props={status} />}</div>
+          <div className="">{<Datapoints props={status} />}</div>
         </label>
       </label>
     </>

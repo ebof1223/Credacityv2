@@ -8,7 +8,7 @@ const Datapoints = (props: { props: string }) => {
   const data = getKeyValueStorage(dp__mock);
 
   return (
-    <table className="table-compact mb-20 table w-full">
+    <table className="table-compact table w-full">
       <thead>
         <tr>
           <th>Username</th>
@@ -18,7 +18,7 @@ const Datapoints = (props: { props: string }) => {
           <th>x/6</th>
           <th>x/12</th>
           <th>App Date</th>
-          <th></th>
+          <th />
         </tr>
       </thead>
       <tbody>
@@ -51,6 +51,18 @@ const Datapoints = (props: { props: string }) => {
               </tr>
             ))}
       </tbody>
+      <tfoot>
+        <tr>
+          <th>Username</th>
+          <th>Fico</th>
+          <th>Income</th>
+          <th>x/3</th>
+          <th>x/6</th>
+          <th>x/12</th>
+          <th>App Date</th>
+          <th />
+        </tr>
+      </tfoot>
     </table>
   );
 };
