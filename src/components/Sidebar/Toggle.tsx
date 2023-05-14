@@ -17,7 +17,7 @@ const Toggle = () => {
   return (
     <button
       className="btn-primary btn-wide btn mx-auto mt-4"
-      onClick={handleClick}
+      onClick={() => handleClick()}
       {...(reapply && { disabled: true })}
     >
       Toggle All

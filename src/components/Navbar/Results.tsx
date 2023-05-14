@@ -52,7 +52,7 @@ const Results = ({ props }: SearchProps) => {
           <label
             className="w-full justify-center text-xs"
             htmlFor="my-drawer-3"
-            onClick={handleResults}
+            onClick={() => handleResults()}
           >
             See more results
           </label>

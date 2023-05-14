@@ -40,8 +40,8 @@ export const getKeyValueStorage = (data: Datapoint[]) => {
     const { cardName } = dp;
     const { ...copy } = dp;
 
-    //if dp.income is present in storage
     if (cardName in storage) {
+      //if dp.income is present in storage
       //push to array
       storage[cardName]?.push(copy);
       //otherwise create storage[dp.icome] = [dp]

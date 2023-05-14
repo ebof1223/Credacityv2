@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppData } from "~/context/AppData";
 import Datapoints from "./Datapoints";
 
 const Modal = () => {
   const { current } = useContext(AppData);
+  const [status, setStatus] = useState("Approved");
   return (
     <>
       <input type="checkbox" id="my-modal-4" className="modal-toggle" />
@@ -25,15 +26,29 @@ const Modal = () => {
             </ul>
           </div>
           {/* NUMBER of users NEEDS TO BE DYNAMIC */}
-          <div className="flex justify-end pb-4 text-xs md:mr-2 md:pb-7">
-            {current && `Recently applied for the ${current.name}? Click here!`}
-          </div>
-          <div className="mb-5  flex content-center items-center justify-between align-middle">
+
+          <div className="my-5 flex content-center items-center justify-between align-middle">
             <div className="btn-group flex justify-start border-none">
-              <button className="btn-active btn-xs btn md:btn-sm">
+              <a
+                className={
+                  status == "Approved"
+                    ? "btn-active btn-xs btn md:btn-sm"
+                    : "btn-xs btn md:btn-sm"
+                }
+                onClick={() => setStatus("Approved")}
+              >
                 Approved
-              </button>
-              <button className="btn-xs btn md:btn-sm">Denied</button>
+              </a>
+              <a
+                className={
+                  status == "Denied"
+                    ? "btn-active btn-xs btn md:btn-sm"
+                    : "btn-xs btn md:btn-sm"
+                }
+                onClick={() => setStatus("Denied")}
+              >
+                Denied
+              </a>
             </div>
             <div className="flex items-center">
               <label className="text-xs font-bold md:text-sm md:font-normal">
@@ -54,7 +69,7 @@ const Modal = () => {
             </div>
           </div>
           <div className="divider" />
-          <div className="overflow-x-auto">{<Datapoints />}</div>
+          <div className="overflow-x-auto">{<Datapoints props={status} />}</div>
         </label>
       </label>
     </>
