@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { CardData, Filters } from "~/interface";
+import type { CardData, Filters, Storage } from "~/interface";
 
 interface AppData {
   display: CardData[];
@@ -12,5 +12,8 @@ interface AppData {
   setReapply: (value: boolean) => void;
   current: CardData | null;
   setCurrent: (value: CardData) => void;
+  breadcrumbs: CardData[];
+  setBreadcrumbs: (value: CardData[]) => void;
+  datapoints: Storage;
 }
 export const AppData = createContext<AppData>({} as AppData);

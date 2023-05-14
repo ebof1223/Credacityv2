@@ -1,14 +1,14 @@
-import { getKeyValueStorage } from "~/functions";
-import Image from "next/image";
 import { useContext, useState } from "react";
+
+import Image from "next/image";
+
 import { AppData } from "~/context/AppData";
 import Datapoints from "./Datapoints";
-import dp__mock from "~/data/dp__mock";
+
 const Modal = () => {
-  const { current } = useContext(AppData);
+  const { current, setCurrent, datapoints, breadcrumbs } = useContext(AppData);
   const [status, setStatus] = useState("Approved");
-  const data = getKeyValueStorage(dp__mock);
-  console.log();
+
   return (
     <>
       <input
@@ -25,20 +25,19 @@ const Modal = () => {
           <div className="sticky left-0">
             <div className="breadcrumbs hidden pb-0 text-sm md:flex">
               <ul>
-                <li>
-                  <a>Business Platinum</a>
-                </li>
-                <li>
-                  <a>Business Gold</a>
-                </li>
-                <li>{current && current.name}</li>
+                {breadcrumbs.length > 1 &&
+                  breadcrumbs.map((card) => (
+                    <li key={`breadcrumb-${card.name}`}>
+                      <a onClick={() => setCurrent(card)}>{card.name}</a>
+                    </li>
+                  ))}
               </ul>
             </div>
             <div className="my-5 flex content-center items-center justify-between align-middle">
               <div className="btn-group flex justify-start border-none">
                 <a
                   className={
-                    current && !data[current.name]
+                    current && !datapoints[current.name]
                       ? "btn-disabled btn-xs btn md:btn-sm"
                       : status == "Approved"
                       ? "btn-modal btn-active"
@@ -50,7 +49,7 @@ const Modal = () => {
                 </a>
                 <a
                   className={
-                    current && !data[current.name]
+                    current && !datapoints[current.name]
                       ? "btn-disabled btn-xs btn md:btn-sm"
                       : status == "Denied"
                       ? "btn-modal btn-active"
@@ -98,7 +97,7 @@ const Modal = () => {
               </label>
             </div>
           </div>
-          <div className="">{<Datapoints props={status} />}</div>
+          <div>{<Datapoints props={{ status }} />}</div>
         </label>
       </label>
     </>

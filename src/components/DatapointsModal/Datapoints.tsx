@@ -1,12 +1,16 @@
 import { useContext } from "react";
-import { AppData } from "~/context/AppData";
-import { getKeyValueStorage } from "~/functions";
-import dp__mock from "~/data/dp__mock";
-import Information from "./Information";
-const Datapoints = (props: { props: string }) => {
-  const { current } = useContext(AppData);
-  const data = getKeyValueStorage(dp__mock);
 
+import { AppData } from "~/context/AppData";
+import Information from "./Information";
+
+interface ModalInfo {
+  props: {
+    status: string;
+  };
+}
+const Datapoints = ({ props }: ModalInfo) => {
+  const { current, datapoints } = useContext(AppData);
+  const { status } = props;
   return (
     <table className="table-compact mb-10 table w-full">
       <thead>
@@ -24,7 +28,7 @@ const Datapoints = (props: { props: string }) => {
       </thead>
       <tbody>
         {current &&
-          data[current.name]
+          datapoints[current.name]
             ?.sort(function (a, b) {
               const x = a.applicationDate.split("/");
               const y = b.applicationDate.split("/");
@@ -33,7 +37,7 @@ const Datapoints = (props: { props: string }) => {
               }
               return 1;
             })
-            ?.filter((card) => card.finalResult.includes(props.props))
+            ?.filter((card) => card.finalResult.includes(status))
             .map((card, i) => (
               <tr key={`data points ${i}`} className="hover">
                 <th>{i + 1}</th>
@@ -52,19 +56,24 @@ const Datapoints = (props: { props: string }) => {
               </tr>
             ))}
       </tbody>
-      <tfoot>
-        <tr>
-          <th />
-          <th>Username</th>
-          <th>Fico</th>
-          <th>Income</th>
-          <th>x/3</th>
-          <th>x/6</th>
-          <th>x/12</th>
-          <th>App Date</th>
-          <th />
-        </tr>
-      </tfoot>
+      {current &&
+        datapoints[current.name]?.some((card) =>
+          card.finalResult.includes(status)
+        ) && (
+          <tfoot>
+            <tr>
+              <th />
+              <th>Username</th>
+              <th>Fico</th>
+              <th>Income</th>
+              <th>x/3</th>
+              <th>x/6</th>
+              <th>x/12</th>
+              <th>App Date</th>
+              <th />
+            </tr>
+          </tfoot>
+        )}
     </table>
   );
 };
