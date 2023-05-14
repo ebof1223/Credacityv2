@@ -17,7 +17,6 @@ const Datapoints = (props: { props: string }) => {
           <th>x/3</th>
           <th>x/6</th>
           <th>x/12</th>
-          <th>Recon</th>
           <th>App Date</th>
           <th></th>
         </tr>
@@ -26,6 +25,14 @@ const Datapoints = (props: { props: string }) => {
         {current &&
           // .sort before map
           data[current.name]
+            ?.sort(function (a, b) {
+              const x = a.applicationDate.split("/");
+              const y = b.applicationDate.split("/");
+              if (y[2] && x[2] && y[1] && x[1] && y[0] && x[0]) {
+                return +y[2] - +x[2] || +y[1] - +x[1] || +y[0] - +x[0];
+              }
+              return 1;
+            })
             ?.filter((card) => card.finalResult.includes(props.props))
             .map((card, i) => (
               <tr key={`data points ${i}`} className="hover">
@@ -39,7 +46,6 @@ const Datapoints = (props: { props: string }) => {
                 <td>{card.x3}</td>
                 <td>{card.x6}</td>
                 <td>{card.x12}</td>
-                <td>{card.calledRecon}</td>
                 <td>{card.applicationDate}</td>
                 {card.notes ? <Information props={card.notes} /> : <td />}
               </tr>
