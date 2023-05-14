@@ -1,11 +1,14 @@
+import { getKeyValueStorage } from "~/functions";
 import Image from "next/image";
 import { useContext, useState } from "react";
 import { AppData } from "~/context/AppData";
 import Datapoints from "./Datapoints";
-
+import dp__mock from "~/data/dp__mock";
 const Modal = () => {
   const { current } = useContext(AppData);
   const [status, setStatus] = useState("Approved");
+  const data = getKeyValueStorage(dp__mock);
+  console.log();
   return (
     <>
       <input
@@ -35,9 +38,11 @@ const Modal = () => {
               <div className="btn-group flex justify-start border-none">
                 <a
                   className={
-                    status == "Approved"
-                      ? "btn-active btn-xs btn md:btn-sm"
-                      : "btn-xs btn md:btn-sm"
+                    current && !data[current.name]
+                      ? "btn-disabled btn-xs btn md:btn-sm"
+                      : status == "Approved"
+                      ? "btn-modal btn-active"
+                      : "btn-modal"
                   }
                   onClick={() => setStatus("Approved")}
                 >
@@ -45,9 +50,11 @@ const Modal = () => {
                 </a>
                 <a
                   className={
-                    status == "Denied"
-                      ? "btn-active btn-xs btn md:btn-sm"
-                      : "btn-xs btn md:btn-sm"
+                    current && !data[current.name]
+                      ? "btn-disabled btn-xs btn md:btn-sm"
+                      : status == "Denied"
+                      ? "btn-modal btn-active"
+                      : "btn-modal"
                   }
                   onClick={() => setStatus("Denied")}
                 >
