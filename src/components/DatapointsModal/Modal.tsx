@@ -6,7 +6,7 @@ import { AppData } from "~/context/AppData";
 import Datapoints from "./Datapoints";
 
 const Modal = () => {
-  const { current, datapoints } = useContext(AppData);
+  const { current, setCurrent, datapoints, breadcrumbs } = useContext(AppData);
   const [status, setStatus] = useState("Approved");
 
   return (
@@ -25,13 +25,12 @@ const Modal = () => {
           <div className="sticky left-0">
             <div className="breadcrumbs hidden pb-0 text-sm md:flex">
               <ul>
-                <li>
-                  <a>Business Platinum</a>
-                </li>
-                <li>
-                  <a>Business Gold</a>
-                </li>
-                <li>{current && current.name}</li>
+                {breadcrumbs.length > 1 &&
+                  breadcrumbs.map((card) => (
+                    <li key={`breadcrumb-${card.name}`}>
+                      <a onClick={() => setCurrent(card)}>{card.name}</a>
+                    </li>
+                  ))}
               </ul>
             </div>
             <div className="my-5 flex content-center items-center justify-between align-middle">

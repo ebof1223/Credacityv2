@@ -9,14 +9,18 @@ import { useContext } from "react";
 import { AppData } from "~/context/AppData";
 
 const Card = ({ props }: { props: CardData }) => {
-  const { setCurrent } = useContext(AppData);
+  const { setCurrent, breadcrumbs, setBreadcrumbs } = useContext(AppData);
   const handleClick = () => {
+    if (breadcrumbs.some((card) => card.name.includes(props.name))) return;
+    breadcrumbs.length > 2
+      ? setBreadcrumbs([...breadcrumbs.slice(1), props])
+      : setBreadcrumbs([...breadcrumbs, props]);
     setCurrent(props);
   };
   return (
     <div className="mx-3 my-5" onClick={handleClick}>
       <label
-        className="card-compact card btn h-52 w-52 flex-nowrap bg-base-100 px-0 shadow-xl"
+        className="card btn card-compact h-52 w-52 flex-nowrap bg-base-100 px-0 shadow-xl"
         htmlFor="my-modal-4"
       >
         <figure>

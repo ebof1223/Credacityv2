@@ -12,15 +12,26 @@ interface SearchProps {
 
 const Results = ({ props }: SearchProps) => {
   const { search } = props;
-  const { setDisplay, results, setReapply, setCurrent } = useContext(AppData);
+  const {
+    setDisplay,
+    results,
+    setReapply,
+    setCurrent,
+    breadcrumbs,
+    setBreadcrumbs,
+  } = useContext(AppData);
 
   const handleResults = () => {
     setDisplay([...results]);
     setReapply(true);
   };
 
-  const handleResult = (card: CardData) => {
-    setCurrent(card);
+  const handleResult = (props: CardData) => {
+    if (breadcrumbs.some((card) => card.name.includes(props.name))) return;
+    breadcrumbs.length > 2
+      ? setBreadcrumbs([...breadcrumbs.slice(1), props])
+      : setBreadcrumbs([...breadcrumbs, props]);
+    setCurrent(props);
   };
 
   return (

@@ -1,7 +1,6 @@
 import { useContext } from "react";
+
 import { AppData } from "~/context/AppData";
-import { getKeyValueStorage } from "~/functions";
-import dp__mock from "~/data/dp__mock";
 import Information from "./Information";
 
 interface ModalInfo {
@@ -12,8 +11,6 @@ interface ModalInfo {
 const Datapoints = ({ props }: ModalInfo) => {
   const { current, datapoints } = useContext(AppData);
   const { status } = props;
-  // console.log(datapoints);
-  // // console.log(data);
   return (
     <table className="table-compact mb-10 table w-full">
       <thead>

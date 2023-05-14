@@ -12,6 +12,8 @@ interface AppData {
   setReapply: (value: boolean) => void;
   current: CardData | null;
   setCurrent: (value: CardData) => void;
+  breadcrumbs: CardData[];
+  setBreadcrumbs: (value: CardData[]) => void;
   datapoints: Storage;
 }
 export const AppData = createContext<AppData>({} as AppData);

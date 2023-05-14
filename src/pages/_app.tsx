@@ -25,6 +25,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   const [filters, setFilters] = useState(defaults);
   const [reapply, setReapply] = useState(false);
   const [current, setCurrent] = useState<CardData | null>(null);
+  const [breadcrumbs, setBreadcrumbs] = useState<CardData[]>([]);
   const datapoints = getKeyValueStorage(dp__mock);
 
   useEffect(() => {
@@ -64,24 +65,26 @@ const MyApp: AppType<{ session: Session | null }> = ({
     setDisplay(displayCopy);
   }, [filters]);
 
+  const globals = {
+    display,
+    setDisplay,
+    filters,
+    setFilters,
+    results,
+    setResults,
+    reapply,
+    setReapply,
+    current,
+    setCurrent,
+    datapoints,
+    breadcrumbs,
+    setBreadcrumbs,
+  };
+
   return (
     <ClerkProvider {...pageProps}>
       <SessionProvider session={session}>
-        <AppData.Provider
-          value={{
-            display,
-            setDisplay,
-            filters,
-            setFilters,
-            results,
-            setResults,
-            reapply,
-            setReapply,
-            current,
-            setCurrent,
-            datapoints,
-          }}
-        >
+        <AppData.Provider value={{ ...globals }}>
           <Component {...pageProps} />
         </AppData.Provider>
       </SessionProvider>
@@ -90,4 +93,3 @@ const MyApp: AppType<{ session: Session | null }> = ({
 };
 
 export default api.withTRPC(MyApp);
-// testing pull request
