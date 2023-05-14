@@ -1,14 +1,14 @@
-import { getKeyValueStorage } from "~/functions";
-import Image from "next/image";
 import { useContext, useState } from "react";
+
+import Image from "next/image";
+
 import { AppData } from "~/context/AppData";
 import Datapoints from "./Datapoints";
-import dp__mock from "~/data/dp__mock";
+
 const Modal = () => {
-  const { current } = useContext(AppData);
+  const { current, datapoints } = useContext(AppData);
   const [status, setStatus] = useState("Approved");
-  const data = getKeyValueStorage(dp__mock);
-  console.log();
+
   return (
     <>
       <input
@@ -38,7 +38,7 @@ const Modal = () => {
               <div className="btn-group flex justify-start border-none">
                 <a
                   className={
-                    current && !data[current.name]
+                    current && !datapoints[current.name]
                       ? "btn-disabled btn-xs btn md:btn-sm"
                       : status == "Approved"
                       ? "btn-modal btn-active"
@@ -50,7 +50,7 @@ const Modal = () => {
                 </a>
                 <a
                   className={
-                    current && !data[current.name]
+                    current && !datapoints[current.name]
                       ? "btn-disabled btn-xs btn md:btn-sm"
                       : status == "Denied"
                       ? "btn-modal btn-active"
@@ -98,7 +98,7 @@ const Modal = () => {
               </label>
             </div>
           </div>
-          <div className="">{<Datapoints props={status} />}</div>
+          <div>{<Datapoints props={{ status }} />}</div>
         </label>
       </label>
     </>

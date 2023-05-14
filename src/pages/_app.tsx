@@ -13,7 +13,8 @@ import { AppData } from "~/context/AppData";
 import defaults from "~/data/filters";
 import cards__mock from "~/data/cards__mock";
 import type { CardData } from "~/interface";
-import { isHighestOffer } from "~/functions";
+import { getKeyValueStorage, isHighestOffer } from "~/functions";
+import dp__mock from "~/data/dp__mock";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -24,6 +25,8 @@ const MyApp: AppType<{ session: Session | null }> = ({
   const [filters, setFilters] = useState(defaults);
   const [reapply, setReapply] = useState(false);
   const [current, setCurrent] = useState<CardData | null>(null);
+  const datapoints = getKeyValueStorage(dp__mock);
+
   useEffect(() => {
     const cardsCopy = [...cards__mock];
     let displayCopy: CardData[] = [];
@@ -76,6 +79,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
             setReapply,
             current,
             setCurrent,
+            datapoints,
           }}
         >
           <Component {...pageProps} />
