@@ -9,7 +9,7 @@ import Contribute from "./Contribute";
 const Navbar = () => {
   const { reapply } = useContext(AppData);
   return (
-    <div className="navbar flex w-full justify-between bg-base-300">
+    <nav className="navbar flex w-full justify-between bg-base-300">
       <div>
         <div className="flex-none lg:hidden">
           <label htmlFor="my-drawer-3" className="btn-ghost btn-square btn">
@@ -24,7 +24,7 @@ const Navbar = () => {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h16M4 18h16"
-              ></path>
+              />
             </svg>
           </label>
         </div>
@@ -33,7 +33,7 @@ const Navbar = () => {
           <Logo size="sm" />
         </div>
       </div>
-      <div className=" flex-none ">
+      <div className="flex-none">
         <ul className="menu-horizontal">
           <li className="mr-5 hidden lg:flex lg:items-center">
             {reapply && <Alert orientation={"left"} />}
@@ -47,7 +47,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   );
 };
 export default Navbar;

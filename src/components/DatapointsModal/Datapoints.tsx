@@ -3,12 +3,9 @@ import { AppData } from "~/context/AppData";
 import { getKeyValueStorage } from "~/functions";
 import dp__mock from "~/data/dp__mock";
 import Information from "./Information";
-//any?
-const Datapoints = () => {
+const Datapoints = (props: { props: string }) => {
   const { current } = useContext(AppData);
-
   const data = getKeyValueStorage(dp__mock);
-  //dyanmically return modal based on whethere or not datapoints exist
 
   return (
     <table className="table-compact mb-20 table w-full">
@@ -27,23 +24,26 @@ const Datapoints = () => {
       </thead>
       <tbody>
         {current &&
-          data[current.name]?.map((card, i) => (
-            <tr key={`data points ${i}`} className="hover">
-              <td>{card.Username}</td>
-              {card.creditScore.toString().length > 3 ? (
-                <Information props={card.creditScore.toString()} />
-              ) : (
-                <td>{card.creditScore}</td>
-              )}
-              <td>{card.income}</td>
-              <td>{card.x3}</td>
-              <td>{card.x6}</td>
-              <td>{card.x12}</td>
-              <td>{card.calledRecon}</td>
-              <td>{card.applicationDate}</td>
-              {card.notes ? <Information props={card.notes} /> : <td />}
-            </tr>
-          ))}
+          // .sort before map
+          data[current.name]
+            ?.filter((card) => card.finalResult.includes(props.props))
+            .map((card, i) => (
+              <tr key={`data points ${i}`} className="hover">
+                <td>{card.Username}</td>
+                {card.creditScore.toString().length > 3 ? (
+                  <Information props={card.creditScore.toString()} />
+                ) : (
+                  <td>{card.creditScore}</td>
+                )}
+                <td>{card.income}</td>
+                <td>{card.x3}</td>
+                <td>{card.x6}</td>
+                <td>{card.x12}</td>
+                <td>{card.calledRecon}</td>
+                <td>{card.applicationDate}</td>
+                {card.notes ? <Information props={card.notes} /> : <td />}
+              </tr>
+            ))}
       </tbody>
     </table>
   );
