@@ -8,9 +8,10 @@ const Datapoints = (props: { props: string }) => {
   const data = getKeyValueStorage(dp__mock);
 
   return (
-    <table className="table-compact table w-full">
+    <table className="table-compact mb-10 table w-full">
       <thead>
         <tr>
+          <th />
           <th>Username</th>
           <th>Fico</th>
           <th>Income</th>
@@ -36,6 +37,7 @@ const Datapoints = (props: { props: string }) => {
             ?.filter((card) => card.finalResult.includes(props.props))
             .map((card, i) => (
               <tr key={`data points ${i}`} className="hover">
+                <th>{i + 1}</th>
                 <td>{card.Username}</td>
                 {card.creditScore.toString().length > 3 ? (
                   <Information props={card.creditScore.toString()} />
@@ -53,6 +55,7 @@ const Datapoints = (props: { props: string }) => {
       </tbody>
       <tfoot>
         <tr>
+          <th />
           <th>Username</th>
           <th>Fico</th>
           <th>Income</th>
