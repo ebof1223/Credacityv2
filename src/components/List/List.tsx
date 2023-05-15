@@ -16,11 +16,12 @@ const List = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <table className="table w-full overflow-x-auto">
         {/* head */}
         <thead>
           <tr>
+            <th></th>
             <th>Card</th>
             <th>Network</th>
             <th>Annual Fee</th>
@@ -42,7 +43,7 @@ const List = () => {
                   className="flex cursor-pointer items-center space-x-3"
                 >
                   <div className="avatar">
-                    <div className=" mask mask-squircle btn h-12 w-20 ">
+                    <div className=" mask mask-squircle h-12 w-20 ">
                       <Image
                         src={"https://www.offeroptimist.com/" + card.imageUrl}
                         alt={card.name}

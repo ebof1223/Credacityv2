@@ -9,7 +9,7 @@ import Contribute from "./Contribute";
 const Navbar = () => {
   const { reapply, grid, setGrid } = useContext(AppData);
   return (
-    <nav className="navbar flex w-full justify-between bg-base-300">
+    <nav className="navbar sticky left-0 flex w-full justify-between bg-base-300">
       <div>
         <div className="flex-none lg:hidden">
           <label htmlFor="my-drawer-3" className="btn-ghost btn-square btn">
