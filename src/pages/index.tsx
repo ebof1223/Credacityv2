@@ -1,12 +1,16 @@
-import { type NextPage } from 'next';
-import Head from 'next/head';
-import DatapointsModal from '~/components/DatapointsModal';
-import Display from '~/components/Display';
+import { type NextPage } from "next";
+import Head from "next/head";
+import { useContext } from "react";
+import DatapointsModal from "~/components/DatapointsModal";
+import Grid from "~/components/Grid";
+import List from "~/components/List";
 
-import Navbar from '~/components/Navbar';
-import Sidebar from '~/components/Sidebar';
+import Navbar from "~/components/Navbar";
+import Sidebar from "~/components/Sidebar";
+import { AppData } from "~/context/AppData";
 
 const Home: NextPage = () => {
+  const { grid } = useContext(AppData);
   return (
     <>
       <Head>
@@ -18,7 +22,7 @@ const Home: NextPage = () => {
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           <Navbar />
-          <Display />
+          {grid ? <Grid /> : <List />}
         </div>
         <Sidebar />
       </main>

@@ -15,5 +15,7 @@ interface AppData {
   breadcrumbs: CardData[];
   setBreadcrumbs: (value: CardData[]) => void;
   datapoints: Storage;
+  grid: boolean;
+  setGrid: (value: boolean) => void;
 }
 export const AppData = createContext<AppData>({} as AppData);
