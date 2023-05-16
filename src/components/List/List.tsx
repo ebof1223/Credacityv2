@@ -21,12 +21,11 @@ const List = () => {
         {/* head */}
         <thead>
           <tr>
-            <th></th>
-            <th>Card</th>
+            <th className="text-center">Card</th>
             <th>Network</th>
             <th>Annual Fee</th>
             <th>Datapoints</th>
-            <th>Link</th>
+            <th className="text-center">Link</th>
             <th></th>
           </tr>
         </thead>
@@ -34,7 +33,7 @@ const List = () => {
           {display.map((card) => (
             <tr
               key={`list-view,${card.name}`}
-              className="hover "
+              className="hover"
               onClick={() => handleClick(card)}
             >
               <th>
@@ -66,9 +65,11 @@ const List = () => {
                   {card.network}
                 </span>
               </td>
-              <td>{card.annualFee != 0 && card.annualFee}</td>
-              <td>{datapoints[card.name]?.length}</td>
-              <th>
+              <td className="text-center">
+                {card.annualFee != 0 && card.annualFee}
+              </td>
+              <td className="text-center">{datapoints[card.name]?.length}</td>
+              <td className="text-center">
                 <a
                   href={card.url}
                   target="_blank"
@@ -89,7 +90,7 @@ const List = () => {
                     />
                   </svg>
                 </a>
-              </th>
+              </td>
               <th />
             </tr>
           ))}
