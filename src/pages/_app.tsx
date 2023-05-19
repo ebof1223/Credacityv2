@@ -20,18 +20,30 @@ const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
+  const datapoints = getKeyValueStorage(dp__mock);
+
   const [display, setDisplay] = useState<CardData[]>([...cards__mock]);
   const [results, setResults] = useState<CardData[]>([]);
   const [filters, setFilters] = useState(defaults);
   const [reapply, setReapply] = useState(false);
   const [current, setCurrent] = useState<CardData | null>(null);
   const [breadcrumbs, setBreadcrumbs] = useState<CardData[]>([]);
-  const [grid, setGrid] = useState(true);
-  const datapoints = getKeyValueStorage(dp__mock);
+  const [grid, setGrid] = useState(false);
 
   useEffect(() => {
-    const cardsCopy = [...cards__mock];
+    const cardsWithDp = [
+      ...cards__mock
+        .filter((a) => !isNaN(datapoints[a.name]?.length))
+        .sort(
+          (a, b) => datapoints[b.name]?.length - datapoints[a.name]?.length
+        ),
+    ];
+
+    const cardsWithoutDp = [...cards__mock.filter((a) => !datapoints[a.name])];
+    console.log(cardsWithoutDp);
+    const cardsCopy = [...cardsWithDp, ...cardsWithoutDp];
     let displayCopy: CardData[] = [];
+
     for (const card of cardsCopy) {
       //type
       if (!card.isBusiness && !filters.type.personal) continue;
@@ -63,7 +75,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
         continue;
       displayCopy = [...displayCopy, card];
     }
-    setDisplay(displayCopy);
+
+    setDisplay([...displayCopy]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const globals = {

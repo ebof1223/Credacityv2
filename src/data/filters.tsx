@@ -18,6 +18,6 @@ const defaults = {
     discover: true,
   },
   utility: { cashback: true, travel: true },
-  misc: { highestoffer: true },
+  misc: { highestoffer: false },
 };
 export default defaults;

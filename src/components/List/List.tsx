@@ -21,6 +21,7 @@ const List = () => {
         {/* head */}
         <thead>
           <tr>
+            <th></th>
             <th className="text-center">Card</th>
             <th>Network</th>
             <th>Annual Fee</th>
@@ -52,12 +53,14 @@ const List = () => {
                       />
                     </div>
                   </div>
-                  <div>
-                    <div className="text-xs font-bold">{card.name}</div>
-                    <div className="text-sm opacity-50">{card.issuer}</div>
-                  </div>
                 </label>
               </th>
+              <td>
+                <div>
+                  <div className="text-xs font-bold">{card.name}</div>
+                  <div className="text-sm opacity-50">{card.issuer}</div>
+                </div>
+              </td>
               <td>
                 {card.currency}
                 <br />
