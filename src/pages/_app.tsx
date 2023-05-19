@@ -33,9 +33,11 @@ const MyApp: AppType<{ session: Session | null }> = ({
   useEffect(() => {
     const cardsWithDp = [
       ...cards__mock
-        .filter((a) => !isNaN(datapoints[a.name]?.length))
+        .filter((a) => !isNaN(Number(datapoints[a.name].length)))
         .sort(
-          (a, b) => datapoints[b.name]?.length - datapoints[a.name]?.length
+          (a, b) =>
+            Number(datapoints[b.name]?.length) -
+            Number(datapoints[a.name]?.length)
         ),
     ];
 
