@@ -37,7 +37,7 @@ const Results = ({ props }: SearchProps) => {
   return (
     <ul
       tabIndex={0}
-      className="dropdown-content menu rounded-box w-80 bg-base-100 p-4 shadow"
+      className="dropdown-content menu rounded-box z-50 w-80 bg-base-100 p-4 shadow"
     >
       {results.slice(0, 5).map((item) => (
         <li

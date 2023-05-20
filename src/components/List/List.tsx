@@ -16,8 +16,8 @@ const List = () => {
   };
 
   return (
-    <div className="w-full ">
-      <table className="table w-full overflow-x-auto">
+    <div className="-z-50 w-full">
+      <table className="table w-full">
         {/* head */}
         <thead>
           <tr>

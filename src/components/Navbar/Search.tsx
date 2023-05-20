@@ -33,7 +33,7 @@ const Search = () => {
   };
   return (
     <>
-      <nav className="flex items-center justify-start">
+      <nav className="z-50 flex items-center justify-start ">
         <div className="dropdown">
           <input
             type="text"
@@ -44,6 +44,7 @@ const Search = () => {
             }}
             value={search}
             onFocus={() => setSearch("")}
+            tabIndex={0}
           />
           {search && <Results props={{ search, setSearch }} />}
         </div>

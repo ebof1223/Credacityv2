@@ -18,9 +18,9 @@ const Card = ({ props }: { props: CardData }) => {
       : setBreadcrumbs([...breadcrumbs, props]);
   };
   return (
-    <div className="mx-3 my-5" onClick={handleClick}>
+    <div className="z-0 mx-3 my-5" onClick={handleClick}>
       <label
-        className="card btn card-compact h-52 w-52 flex-nowrap bg-base-100 px-0 shadow-xl"
+        className="card-compact card btn h-52 w-52 flex-nowrap bg-base-100 px-0 shadow-xl"
         htmlFor="my-modal-4"
       >
         <figure>

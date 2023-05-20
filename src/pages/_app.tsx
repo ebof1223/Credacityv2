@@ -22,7 +22,15 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   const datapoints = getKeyValueStorage(dp__mock);
 
-  const [display, setDisplay] = useState<CardData[]>([...cards__mock]);
+  const [display, setDisplay] = useState<CardData[]>([
+    ...cards__mock
+      .filter((a) => !isNaN(Number(datapoints[a.name]?.length)))
+      .sort(
+        (a, b) =>
+          Number(datapoints[b.name]?.length) -
+          Number(datapoints[a.name]?.length)
+      ),
+  ]);
   const [results, setResults] = useState<CardData[]>([]);
   const [filters, setFilters] = useState(defaults);
   const [reapply, setReapply] = useState(false);
