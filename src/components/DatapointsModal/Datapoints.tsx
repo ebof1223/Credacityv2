@@ -32,9 +32,9 @@ const Datapoints = ({ props }: ModalInfo) => {
             ?.sort(function (a, b) {
               const x = a.applicationDate.split("/");
               const y = b.applicationDate.split("/");
-              if (y[2] && x[2] && y[1] && x[1] && y[0] && x[0]) {
+              if (y[2] && x[2] && y[1] && x[1] && y[0] && x[0])
                 return +y[2] - +x[2] || +y[1] - +x[1] || +y[0] - +x[0];
-              }
+
               return 1;
             })
             ?.filter((card) => card.finalResult.includes(status))

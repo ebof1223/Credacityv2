@@ -1,15 +1,17 @@
 import Image from "next/image";
 import type { CardData } from "~/interface";
 import Uptrend from "./Badges/Uptrend";
-import { isHighestOffer } from "~/functions";
+import { getKeyValueStorage, isHighestOffer } from "~/functions";
 import Business from "./Badges/Business";
 import OfficialPage from "./Badges/OfficialPage";
 import Fee from "./Badges/Fee";
 import { useContext } from "react";
 import { AppData } from "~/context/AppData";
+import dp__mock from "~/data/dp__mock";
 
 const Card = ({ props }: { props: CardData }) => {
   const { setCurrent, breadcrumbs, setBreadcrumbs } = useContext(AppData);
+  const datapoints = getKeyValueStorage(dp__mock);
   const handleClick = () => {
     setCurrent(props);
     if (breadcrumbs.some((card) => card.name == props.name)) return;
@@ -44,9 +46,6 @@ const Card = ({ props }: { props: CardData }) => {
           </h2>
           <div className="m-auto">
             {props.annualFee > 0 && <Fee fee={`$${props.annualFee}`} />}
-            {isHighestOffer(props.offers, props.historicalOffers) && (
-              <Uptrend />
-            )}
             {props.isBusiness && <Business />}
             {<OfficialPage url={props.url} />}
           </div>

@@ -50,7 +50,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
     ];
 
     const cardsWithoutDp = [...cards__mock.filter((a) => !datapoints[a.name])];
-    console.log(cardsWithoutDp);
     const cardsCopy = [...cardsWithDp, ...cardsWithoutDp];
     let displayCopy: CardData[] = [];
 
