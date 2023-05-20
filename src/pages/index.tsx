@@ -2,6 +2,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import { useContext } from "react";
 import DatapointsModal from "~/components/DatapointsModal";
+import Form from "~/components/Form";
 import Grid from "~/components/Grid";
 import List from "~/components/List";
 
@@ -27,6 +28,7 @@ const Home: NextPage = () => {
         <Sidebar />
       </main>
       <DatapointsModal />
+      <Form />
     </>
   );
 };

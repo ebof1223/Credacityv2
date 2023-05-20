@@ -79,7 +79,10 @@ const Modal = () => {
               </div>
             </div>
             <div className=" flex content-center items-center justify-center">
-              <label className="btn-outline btn-success btn-sm btn-circle btn border-none">
+              <label
+                className="btn-outline btn-success btn-sm btn-circle btn border-none"
+                htmlFor="my-modal-5"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
