@@ -15,6 +15,7 @@ interface AppData {
   breadcrumbs: CardData[];
   setBreadcrumbs: (value: CardData[]) => void;
   datapoints: Storage;
+  setDatapoints: (value: Storage) => void;
   grid: boolean;
   setGrid: (value: boolean) => void;
 }

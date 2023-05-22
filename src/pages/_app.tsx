@@ -20,8 +20,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
-  const datapoints = getKeyValueStorage(dp__mock);
-
+  const [datapoints, setDatapoints] = useState(getKeyValueStorage(dp__mock));
   const [display, setDisplay] = useState<CardData[]>([
     ...cards__mock
       .filter((a) => !isNaN(Number(datapoints[a.name]?.length)))
@@ -101,6 +100,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
     current,
     setCurrent,
     datapoints,
+    setDatapoints,
     breadcrumbs,
     setBreadcrumbs,
     grid,
