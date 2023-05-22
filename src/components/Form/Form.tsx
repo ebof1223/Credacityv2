@@ -15,8 +15,8 @@ const Form = () => {
   const formik = useFormik({
     initialValues: {
       cardName: current?.name,
-      finalResult: "Approved",
-      Username: "hhhhhhhhhk",
+      finalResult: "",
+      Username: "",
       creditScore: 350,
       income: "",
       applicationDate: "",
