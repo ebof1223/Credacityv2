@@ -36,6 +36,12 @@ const MyApp: AppType<{ session: Session | null }> = ({
   const [current, setCurrent] = useState<CardData | null>(null);
   const [breadcrumbs, setBreadcrumbs] = useState<CardData[]>([]);
   const [grid, setGrid] = useState(false);
+  const [page, setPage] = useState(1);
+  const [pageDisplay, setPageDisplay] = useState(display);
+
+  useEffect(() => {
+    setPageDisplay(display.slice(0, 12));
+  }, [setDisplay, display]);
 
   useEffect(() => {
     const cardsWithDp = [
@@ -105,6 +111,10 @@ const MyApp: AppType<{ session: Session | null }> = ({
     setBreadcrumbs,
     grid,
     setGrid,
+    page,
+    setPage,
+    pageDisplay,
+    setPageDisplay,
   };
 
   return (

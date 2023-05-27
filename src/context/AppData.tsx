@@ -18,5 +18,9 @@ interface AppData {
   setDatapoints: (value: Storage) => void;
   grid: boolean;
   setGrid: (value: boolean) => void;
+  page: number;
+  setPage: (value: number) => void;
+  pageDisplay: CardData[];
+  setPageDisplay: (value: CardData[]) => void;
 }
 export const AppData = createContext<AppData>({} as AppData);
